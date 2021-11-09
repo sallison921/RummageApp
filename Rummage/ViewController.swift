@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         
         // Load the "Box" scene from the "Experience" Reality File
         let boxAnchor = try! Experience.loadBox()
+        let myVar = "hi"
         //a change here
         
         // Add the box anchor to the scene
