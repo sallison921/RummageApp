@@ -13,6 +13,7 @@
 		EB6EC9B9273B31AF005CC11A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB6EC9B7273B31AF005CC11A /* Main.storyboard */; };
 		EB6EC9BB273B31B0005CC11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB6EC9BA273B31B0005CC11A /* Assets.xcassets */; };
 		EB6EC9BE273B31B0005CC11A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB6EC9BC273B31B0005CC11A /* LaunchScreen.storyboard */; };
+		EB6EC9C6273ECC16005CC11A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EB6EC9BA273B31B0005CC11A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB6EC9BD273B31B0005CC11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB6EC9BF273B31B0005CC11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */,
 				EB6EC9B3273B31AF005CC11A /* ViewController.swift */,
+				EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */,
 				EB6EC9B5273B31AF005CC11A /* Experience.rcproject */,
 				EB6EC9B7273B31AF005CC11A /* Main.storyboard */,
 				EB6EC9BA273B31B0005CC11A /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 				EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */,
 				EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */,
 				EB6EC9B6273B31AF005CC11A /* Experience.rcproject in Sources */,
+				EB6EC9C6273ECC16005CC11A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
