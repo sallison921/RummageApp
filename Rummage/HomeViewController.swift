@@ -20,6 +20,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     struct recipeSearchResults:Decodable{
         let drinks : [recipeInfo]
     }
+    
     struct recipeInfo:Decodable{
         let idDrink: String //id of drink in database
         let strDrink: String //name of drink
@@ -101,6 +102,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        collectionView.delegate = self
         collectionView.dataSource = self
 
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A86822741C852003F89F8 /* DetailedViewController.swift */; };
 		EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */; };
 		EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B3273B31AF005CC11A /* ViewController.swift */; };
 		EB6EC9B6273B31AF005CC11A /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B5273B31AF005CC11A /* Experience.rcproject */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		839A86822741C852003F89F8 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		EB6EC9AE273B31AF005CC11A /* Rummage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rummage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB6EC9B3273B31AF005CC11A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */,
 				EB6EC9B5273B31AF005CC11A /* Experience.rcproject */,
 				EB6EC9B7273B31AF005CC11A /* Main.storyboard */,
+				839A86822741C852003F89F8 /* DetailedViewController.swift */,
 				EB6EC9BA273B31B0005CC11A /* Assets.xcassets */,
 				EB6EC9BC273B31B0005CC11A /* LaunchScreen.storyboard */,
 				EB6EC9BF273B31B0005CC11A /* Info.plist */,
@@ -142,6 +145,7 @@
 			files = (
 				EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */,
 				EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */,
+				839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */,
 				EB6EC9B6273B31AF005CC11A /* Experience.rcproject in Sources */,
 				EB6EC9C6273ECC16005CC11A /* HomeViewController.swift in Sources */,
 			);
