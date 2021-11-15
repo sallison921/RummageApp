@@ -19,8 +19,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     //API key: 9973533
     
-    var curTotData = recipeSearchResults(drinks: [])
-    var curDrinkData: [recipeInfo] = []
+    var curRSTotData = recipeSearchResults(drinks: [])
+    var curRecipeSelectedData: [recipeInfo] = []
+    
+    var curISTotData = recipeSearchResults(drinks: [])
+    var curIngrToRecipeData: [recipeInfo] = []
     
     struct recipeSearchResults:Decodable{
         let drinks : [recipeInfo]
@@ -134,15 +137,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let totalURL = beginURL + curRecipe
         if let url = URL(string: totalURL){
             if let data = try? Data(contentsOf: url){
-                curTotData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
+                curRSTotData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
             }
         }
-        curDrinkData = curTotData.drinks
-        
-    }
-    
-    //uses the current ingredients produced by the barcode scanner to search for recipes to make with them
-    func ingredToRec(){
+        curRecipeSelectedData = curRSTotData.drinks
         
     }
 
@@ -171,6 +169,32 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 }
             }
         }
+    }
+
+    //uses the current ingredients produced by the barcode scanner to search for recipes to make with them
+    func ingrToRecipe(){
+        var ingrToSearch: String = ""
+        for ingr in curItemsScanned{
+            if(curItemsScanned.firstIndex(of: ingr) == (curItemsScanned.count - 1)){
+                ingrToSearch += ingr
+            }
+            else{
+                ingrToSearch += ingr + ","
+            }
+        }
+        
+        let beginURL: String = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
+        if(ingrToSearch.isEmpty){
+           ingrToSearch = "tonic_water,gin"
+        }
+        let totalURL = beginURL + ingrToSearch
+        if let url = URL(string: totalURL){
+            if let data = try? Data(contentsOf: url){
+                curISTotData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
+            }
+        }
+        
+        curIngrToRecipeData = curISTotData.drinks
     }
 
 }
