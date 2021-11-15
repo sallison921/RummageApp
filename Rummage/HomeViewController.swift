@@ -133,6 +133,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
     }
+    
+    //uses the current ingredients produced by the barcode scanner to search for recipes to make with them
+    func ingredToRec(){
+        
+    }
 
 
 }
