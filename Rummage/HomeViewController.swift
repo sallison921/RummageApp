@@ -14,6 +14,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var curRecipe: String!
     // set this^^ when a recipe is clicked on
     
+    var curItemsScanned: [String] = []
+    // add to this^^ when an items are scanned
+    
+    //API key: 9973533
+    
     var curTotData = recipeSearchResults(drinks: [])
     var curDrinkData: [recipeInfo] = []
     
@@ -132,6 +137,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 curTotData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
             }
         }
+        curDrinkData = curTotData.drinks
+        
     }
     
     //uses the current ingredients produced by the barcode scanner to search for recipes to make with them
@@ -139,6 +146,32 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
 
+    //called when scanner produces the name of the ingredient scanned
+    //checks that the ingredients scanned appear in the database's list of ingredients, and removes an item from the array of scanned ingredients if it does not
+    func isPresentAPI(){
+        var ingrdMainData = recipeSearchResults(drinks: [])
+        var totalIngrData: [recipeInfo]!
+        
+        let totalURL = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+        if let url = URL(string: totalURL){
+            if let data = try? Data(contentsOf: url){
+                ingrdMainData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
+            }
+        }
+        totalIngrData = ingrdMainData.drinks
+        for existIngrDict in totalIngrData{
+            let existIngr = existIngrDict.strIngredient1
+            for scIngr in curItemsScanned{
+                if(scIngr == existIngr){
+                    break
+                }
+                else{
+                    curItemsScanned = curItemsScanned.filter(){$0 != scIngr}
+                    // ^^ removes items from scanned ingredient list
+                }
+            }
+        }
+    }
 
 }
 
