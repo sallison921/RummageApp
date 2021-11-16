@@ -9,23 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ARView-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController id="BYZ-38-t0r" userLabel="ARView" customClass="ViewController" customModule="Rummage" customModuleProvider="target" sceneMemberID="viewController">
-                    <arView key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arView>
-                    <navigationItem key="navigationItem" id="Qd0-RC-ld9"/>
-                    <connections>
-                        <outlet property="arView" destination="8bC-Xf-vdC" id="TPV-4x-avp"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1962" y="-325"/>
-        </scene>
         <!--RUMmage-->
         <scene sceneID="spY-fr-Czx">
             <objects>
@@ -323,12 +306,28 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9tD-lg-SZz"/>
+                        <segue destination="qd5-iq-KVw" kind="relationship" relationship="rootViewController" id="Xsd-HG-Yfr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ta-Tt-l09" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1087" y="-281"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5yE-Nd-wEl">
+            <objects>
+                <viewController id="qd5-iq-KVw" customClass="ViewController" customModule="Rummage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ije-wW-9q2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9zs-oa-eLQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ch0-35-Ij9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bZ-5Z-FOG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="-281"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="LIA-D1-WXS">
