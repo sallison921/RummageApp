@@ -16,6 +16,7 @@
 		EB6EC9BB273B31B0005CC11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB6EC9BA273B31B0005CC11A /* Assets.xcassets */; };
 		EB6EC9BE273B31B0005CC11A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB6EC9BC273B31B0005CC11A /* LaunchScreen.storyboard */; };
 		EB6EC9C6273ECC16005CC11A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */; };
+		F1D9FBBA274464CF00D1F79F /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9FBB9274464CF00D1F79F /* ScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EB6EC9BD273B31B0005CC11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB6EC9BF273B31B0005CC11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F1D9FBB9274464CF00D1F79F /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */,
 				EB6EC9B3273B31AF005CC11A /* ViewController.swift */,
+				F1D9FBB9274464CF00D1F79F /* ScannerViewController.swift */,
 				EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */,
 				EB6EC9B5273B31AF005CC11A /* Experience.rcproject */,
 				EB6EC9B7273B31AF005CC11A /* Main.storyboard */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D9FBBA274464CF00D1F79F /* ScannerViewController.swift in Sources */,
 				B83FA9C92743738E00682B24 /* FavViewController.swift in Sources */,
 				EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */,
 				EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */,
