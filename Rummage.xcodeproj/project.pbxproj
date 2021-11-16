@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A86822741C852003F89F8 /* DetailedViewController.swift */; };
+		B83FA9C92743738E00682B24 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA9C82743738E00682B24 /* FavViewController.swift */; };
 		EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */; };
 		EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B3273B31AF005CC11A /* ViewController.swift */; };
 		EB6EC9B6273B31AF005CC11A /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B5273B31AF005CC11A /* Experience.rcproject */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		839A86822741C852003F89F8 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		B83FA9C82743738E00682B24 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		EB6EC9AE273B31AF005CC11A /* Rummage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rummage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB6EC9B3273B31AF005CC11A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				EB6EC9BA273B31B0005CC11A /* Assets.xcassets */,
 				EB6EC9BC273B31B0005CC11A /* LaunchScreen.storyboard */,
 				EB6EC9BF273B31B0005CC11A /* Info.plist */,
+				B83FA9C82743738E00682B24 /* FavViewController.swift */,
 			);
 			path = Rummage;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B83FA9C92743738E00682B24 /* FavViewController.swift in Sources */,
 				EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */,
 				EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */,
 				839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */,

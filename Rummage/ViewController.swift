@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var arView: ARView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,5 +23,6 @@ class ViewController: UIViewController {
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
+        
     }
 }

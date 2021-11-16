@@ -11,8 +11,8 @@ class DetailedViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let strings = ["a","b","c","d"]
-    let strings2 = ["hello there", "goodbye", "welcome"]
+    let strings = ["gin","tonic water","rosemary", "vodka", "lemon", "cranberry juice"]
+    let strings2 = ["blue margarita", "rosemary blue", "A Day at the Beach"]
     //lazy var data = [strings, curTotData] as [Any]
     lazy var data = [strings, strings2] //placeholder
     
