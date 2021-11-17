@@ -19,14 +19,21 @@ class ViewController: UIViewController {
         let images: [String]
     }
     
+    @IBOutlet weak var scanTextField: UITextField!
+    @IBOutlet weak var scanBarButton: UIButton!
+    @IBOutlet weak var productLabel: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
     let scannerViewController = ScannerViewController()
     var theData:APIResults = APIResults(products: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.systemBlue
         scanBarButton.addTarget(self, action: #selector(scanBarTapped), for: .touchUpInside)
         scannerViewController.delegate = self
+    }
+    
+    @objc func scanBarTapped() {
+        self.navigationController?.pushViewController(scannerViewController, animated: true)
     }
 }
 
