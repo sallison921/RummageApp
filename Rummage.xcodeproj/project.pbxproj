@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A86822741C852003F89F8 /* DetailedViewController.swift */; };
+		839A871527475037003F89F8 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A871427475037003F89F8 /* CustomHeaderView.swift */; };
+		839A87172747505D003F89F8 /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 839A87162747505D003F89F8 /* CustomHeaderView.xib */; };
 		B83FA9C92743738E00682B24 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA9C82743738E00682B24 /* FavViewController.swift */; };
 		EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */; };
 		EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B3273B31AF005CC11A /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		839A86822741C852003F89F8 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		839A871427475037003F89F8 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		839A87162747505D003F89F8 /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
 		B83FA9C82743738E00682B24 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		EB6EC9AE273B31AF005CC11A /* Rummage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rummage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 				EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */,
 				EB6EC9B5273B31AF005CC11A /* Experience.rcproject */,
 				EB6EC9B7273B31AF005CC11A /* Main.storyboard */,
+				839A871427475037003F89F8 /* CustomHeaderView.swift */,
+				839A87162747505D003F89F8 /* CustomHeaderView.xib */,
 				839A86822741C852003F89F8 /* DetailedViewController.swift */,
 				EB6EC9BA273B31B0005CC11A /* Assets.xcassets */,
 				EB6EC9BC273B31B0005CC11A /* LaunchScreen.storyboard */,
@@ -136,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				839A87172747505D003F89F8 /* CustomHeaderView.xib in Resources */,
 				EB6EC9BE273B31B0005CC11A /* LaunchScreen.storyboard in Resources */,
 				EB6EC9BB273B31B0005CC11A /* Assets.xcassets in Resources */,
 				EB6EC9B9273B31AF005CC11A /* Main.storyboard in Resources */,
@@ -149,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				839A871527475037003F89F8 /* CustomHeaderView.swift in Sources */,
 				F1D9FBBA274464CF00D1F79F /* ScannerViewController.swift in Sources */,
 				B83FA9C92743738E00682B24 /* FavViewController.swift in Sources */,
 				EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */,

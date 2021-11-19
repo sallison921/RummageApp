@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailedViewController: UIViewController, UITableViewDataSource {
+class DetailedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,6 +17,18 @@ class DetailedViewController: UIViewController, UITableViewDataSource {
     lazy var data = [strings, strings2] //placeholder
     
     let headerTitles = ["Your Ingredients", "Recipes"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUp()
+    }
+    
+    func setUp() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "CustomHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "CustomHeaderView")
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return data.count //2
@@ -28,27 +40,24 @@ class DetailedViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+        cell.textLabel?.textAlignment = .center
+        cell.backgroundColor = UIColor(named: "Pink")
+        cell.textLabel?.textColor = .white
         cell.textLabel?.text = data[indexPath.section][indexPath.row]
   
         return cell
     }
     
     //titles for each section header
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return headerTitles[section]
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomHeaderView") as! CustomHeaderView
+        headerView.headerTitle.text = headerTitles[section]
+        return headerView
     }
-    
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUp()
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 65
     }
-    
-    func setUp() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.dataSource = self
-    }
-    
 
     /*
     // MARK: - Navigation
