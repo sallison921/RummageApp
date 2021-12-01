@@ -11,6 +11,12 @@
 		839A871527475037003F89F8 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A871427475037003F89F8 /* CustomHeaderView.swift */; };
 		839A87172747505D003F89F8 /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 839A87162747505D003F89F8 /* CustomHeaderView.xib */; };
 		B83FA9C92743738E00682B24 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA9C82743738E00682B24 /* FavViewController.swift */; };
+		EB3CE825275707650010719E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE824275707650010719E /* ProfileViewController.swift */; };
+		EB3CE8272757094A0010719E /* CreatedRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE8262757094A0010719E /* CreatedRecipesViewController.swift */; };
+		EB3CE82927570A540010719E /* ChosenRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE82827570A540010719E /* ChosenRecipeViewController.swift */; };
+		EB3CE82B27570D9B0010719E /* YourPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE82A27570D9B0010719E /* YourPostsViewController.swift */; };
+		EB3CE82D27570E920010719E /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE82C27570E920010719E /* FollowersViewController.swift */; };
+		EB3CE82F27570E9C0010719E /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE82E27570E9C0010719E /* FollowingViewController.swift */; };
 		EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */; };
 		EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B3273B31AF005CC11A /* ViewController.swift */; };
 		EB6EC9B6273B31AF005CC11A /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9B5273B31AF005CC11A /* Experience.rcproject */; };
@@ -26,6 +32,12 @@
 		839A871427475037003F89F8 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		839A87162747505D003F89F8 /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
 		B83FA9C82743738E00682B24 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
+		EB3CE824275707650010719E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EB3CE8262757094A0010719E /* CreatedRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedRecipesViewController.swift; sourceTree = "<group>"; };
+		EB3CE82827570A540010719E /* ChosenRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenRecipeViewController.swift; sourceTree = "<group>"; };
+		EB3CE82A27570D9B0010719E /* YourPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPostsViewController.swift; sourceTree = "<group>"; };
+		EB3CE82C27570E920010719E /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		EB3CE82E27570E9C0010719E /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		EB6EC9AE273B31AF005CC11A /* Rummage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rummage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB6EC9B3273B31AF005CC11A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +86,12 @@
 				EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */,
 				EB6EC9B5273B31AF005CC11A /* Experience.rcproject */,
 				EB6EC9B7273B31AF005CC11A /* Main.storyboard */,
+				EB3CE82C27570E920010719E /* FollowersViewController.swift */,
+				EB3CE82E27570E9C0010719E /* FollowingViewController.swift */,
+				EB3CE82A27570D9B0010719E /* YourPostsViewController.swift */,
+				EB3CE8262757094A0010719E /* CreatedRecipesViewController.swift */,
+				EB3CE82827570A540010719E /* ChosenRecipeViewController.swift */,
+				EB3CE824275707650010719E /* ProfileViewController.swift */,
 				839A871427475037003F89F8 /* CustomHeaderView.swift */,
 				839A87162747505D003F89F8 /* CustomHeaderView.xib */,
 				839A86822741C852003F89F8 /* DetailedViewController.swift */,
@@ -159,9 +177,15 @@
 				839A871527475037003F89F8 /* CustomHeaderView.swift in Sources */,
 				F1D9FBBA274464CF00D1F79F /* ScannerViewController.swift in Sources */,
 				B83FA9C92743738E00682B24 /* FavViewController.swift in Sources */,
+				EB3CE8272757094A0010719E /* CreatedRecipesViewController.swift in Sources */,
+				EB3CE82F27570E9C0010719E /* FollowingViewController.swift in Sources */,
 				EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */,
 				EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */,
+				EB3CE82927570A540010719E /* ChosenRecipeViewController.swift in Sources */,
+				EB3CE82B27570D9B0010719E /* YourPostsViewController.swift in Sources */,
 				839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */,
+				EB3CE825275707650010719E /* ProfileViewController.swift in Sources */,
+				EB3CE82D27570E920010719E /* FollowersViewController.swift in Sources */,
 				EB6EC9B6273B31AF005CC11A /* Experience.rcproject in Sources */,
 				EB6EC9C6273ECC16005CC11A /* HomeViewController.swift in Sources */,
 			);
