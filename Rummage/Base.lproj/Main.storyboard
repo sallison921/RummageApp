@@ -47,7 +47,19 @@
                         <viewLayoutGuide key="safeArea" id="cI3-fI-ht4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="RUMmage" id="XHa-EZ-jGD"/>
+                    <navigationItem key="navigationItem" title="RUMmage" id="XHa-EZ-jGD">
+                        <barButtonItem key="leftBarButtonItem" title="Register or Login" id="F9G-Gh-abs">
+                            <connections>
+                                <action selector="addUser:" destination="sxd-VR-lmO" id="5vD-po-JlK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New Post" id="vdX-4P-Zbp">
+                            <connections>
+                                <action selector="addPost:" destination="sxd-VR-lmO" id="VDf-bi-u4N"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="h2s-CO-AHS" id="dff-Tx-cg3"/>
                     </connections>

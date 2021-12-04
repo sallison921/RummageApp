@@ -7,9 +7,9 @@
 
 import UIKit
 
-
 class ViewController: UIViewController {
     
+
     struct APIResults:Decodable {
         let products: [Products]
     }
@@ -34,6 +34,11 @@ class ViewController: UIViewController {
     
     @objc func scanBarTapped() {
         self.navigationController?.pushViewController(scannerViewController, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
 }
 
