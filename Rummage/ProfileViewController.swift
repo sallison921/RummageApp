@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var profilePicture: UIImageView!
 
+
+    @IBOutlet weak var logOut: UIButton!
     //buttons on profile page
     //we can add little icons on top of each and make it look pretty
     @IBOutlet weak var createdRecipes: UIButton!
@@ -21,11 +23,52 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getInfo()
         
         // Do any additional setup after loading the view.
     }
-    
+    func getInfo(){
+        
+        let user = Auth.auth().currentUser
+        if let user = user {
+          // The user's ID, unique to the Firebase project.
+          // Do NOT use this value to authenticate with your backend server,
+          // if you have one. Use getTokenWithCompletion:completion: instead.
+//          let uid = user.uid
+          let email = user.email
+         print(email ??  "")
+            let userDisplayName = user.displayName
+            print(userDisplayName ?? "no")
+            username.text = userDisplayName
+//          var multiFactorString = "MultiFactor: "
+//          for info in user.multiFactor.enrolledFactors {
+//            multiFactorString += info.displayName ?? "[DispayName]"
+//            multiFactorString += " "
+//          }
+//            print(multiFactorString)
+          // ...
+        }
+    }
 
+    @IBAction func logOutTapped(_ sender: Any) {
+  
+            do {
+                try Auth.auth().signOut()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                   let loginNavController = storyboard.instantiateViewController(identifier: "logginginNav")
+
+            (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(loginNavController)
+            }
+            catch {
+                print("issues")
+            }
+           
+           
+        }
+    
+          
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -36,4 +79,4 @@ class ProfileViewController: UIViewController {
     }
     */
 
-}
+

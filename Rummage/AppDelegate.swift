@@ -19,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         ref = Database.database().reference()
         
-        return true
+        
+        //https://fluffy.es/how-to-transition-from-login-screen-to-tab-bar-controller/ got help with changing root controller
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginNavController = storyboard.instantiateViewController(identifier: "logginginNav")
+        window?.rootViewController = loginNavController
+           return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -38,8 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-  
-
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true){
+        guard let window = self.window else {
+                return
+            }
+            
+            // change the root view controller to your specific view controller
+            window.rootViewController = vc
+    }
+   
 
 }
 
