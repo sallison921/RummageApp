@@ -44,6 +44,8 @@
 		EB6EC9BB273B31B0005CC11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB6EC9BA273B31B0005CC11A /* Assets.xcassets */; };
 		EB6EC9BE273B31B0005CC11A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB6EC9BC273B31B0005CC11A /* LaunchScreen.storyboard */; };
 		EB6EC9C6273ECC16005CC11A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */; };
+		EB7F8530275D2640003B122F /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F852F275D2640003B122F /* NewPostViewController.swift */; };
+		EB7F8532275D2658003B122F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F8531275D2658003B122F /* RegisterViewController.swift */; };
 		F1D9FBBA274464CF00D1F79F /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9FBB9274464CF00D1F79F /* ScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,8 @@
 		EB6EC9BD273B31B0005CC11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB6EC9BF273B31B0005CC11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EB7F852F275D2640003B122F /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		EB7F8531275D2658003B122F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F1D9FBB9274464CF00D1F79F /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +130,8 @@
 				EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */,
 				EB6EC9B5273B31AF005CC11A /* Experience.rcproject */,
 				EB6EC9B7273B31AF005CC11A /* Main.storyboard */,
+				EB7F8531275D2658003B122F /* RegisterViewController.swift */,
+				EB7F852F275D2640003B122F /* NewPostViewController.swift */,
 				EB3CE82C27570E920010719E /* FollowersViewController.swift */,
 				EB3CE82E27570E9C0010719E /* FollowingViewController.swift */,
 				EB3CE82A27570D9B0010719E /* YourPostsViewController.swift */,
@@ -251,9 +257,11 @@
 				EB3CE82B27570D9B0010719E /* YourPostsViewController.swift in Sources */,
 				839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */,
 				EB3CE825275707650010719E /* ProfileViewController.swift in Sources */,
+				EB7F8532275D2658003B122F /* RegisterViewController.swift in Sources */,
 				EB3CE82D27570E920010719E /* FollowersViewController.swift in Sources */,
 				EB6EC9B6273B31AF005CC11A /* Experience.rcproject in Sources */,
 				EB6EC9C6273ECC16005CC11A /* HomeViewController.swift in Sources */,
+				EB7F8530275D2640003B122F /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
