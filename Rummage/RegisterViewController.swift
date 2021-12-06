@@ -42,22 +42,22 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerClicked(_ sender: Any) {
-        self.logIn()
-        self.addName()
+     
+
         
-//        Auth.auth().createUser(withEmail: emailRegister.text ?? "", password: pwRegister.text ?? "")  {(user, error) in
-//            if user != nil {
-//                print("registered")
-//
-//                self.logIn()
-//                self.addName()
-//            }
-//            if error != nil {
-//                print(":(",error ?? "")
-//                self.errorFound.numberOfLines = 3
-//                self.errorFound.text = "There was an error creating your account, please try again"
-//            }
-//        }
+        Auth.auth().createUser(withEmail: emailRegister.text ?? "", password: pwRegister.text ?? "")  {(user, error) in
+            if user != nil {
+                print("registered")
+
+                self.logIn()
+                self.addName()
+            }
+            if error != nil {
+                print(":(",error ?? "")
+                self.errorFound.numberOfLines = 3
+                self.errorFound.text = "There was an error creating your account, please try again"
+            }
+        }
    
        
     
@@ -66,21 +66,17 @@ class RegisterViewController: UIViewController {
     
 
     func addName() {
-        let registerEmail = emailRegister.text ?? ""
-        let newUserRef = refUserInfo.child(registerEmail.lowercased())
-        //^^makes sure database saves only latest entry of the username (whether its all lower or all upper or mixed cased)
-        userInfo = ["email": emailRegister.text ?? "testUser", "password": pwRegister.text ?? "password", "bio": biographyRegister.text ?? "-"]
-        newUserRef.setValue(userInfo)
-//        if Auth.auth().currentUser != nil {
-//            let addName = Auth.auth().currentUser?.createProfileChangeRequest()
-//            addName?.displayName = self.usernameRegister.text ?? "nope"
-//            print(self.usernameRegister.text)
-//            addName?.commitChanges { error in
-//                print(error ?? addName?.displayName)
-//            }
-//        } else {
-//          print("not yet")
-//        }
+
+        if Auth.auth().currentUser != nil {
+            let addName = Auth.auth().currentUser?.createProfileChangeRequest()
+            addName?.displayName = self.usernameRegister.text ?? "nope"
+            print(self.usernameRegister.text)
+            addName?.commitChanges { error in
+                print(error ?? addName?.displayName)
+            }
+        } else {
+          print("not yet")
+        }
        
     }
     
