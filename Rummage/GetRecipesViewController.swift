@@ -62,6 +62,13 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         let idDrink: String //id of drink in database
     }
     
+    struct existingDrink:Decodable{
+        let strIngredient1: String //ingredient 1
+    }
+    struct listDrink:Decodable{
+        let listDrinks : [existingDrink]
+    }
+    
     struct recipeSearchResults:Decodable{
         let drinks : [recipeInfo]
     }
@@ -132,16 +139,17 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
     //called when scanner produces the name of the ingredient scanned
     //checks that the ingredients scanned appear in the database's list of ingredients, and removes an item from the array of scanned ingredients if it does not
     func isPresentAPI(){
-        var ingrdMainData = recipeSearchResults(drinks: [])
-        var totalIngrData: [recipeInfo]!
+        var ingrdMainData = listDrink(listDrinks: [])
+//        var ingrdMainData = recipeSearchResults(drinks: [])
+        var totalIngrData: [existingDrink]!
         
         let totalURL = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
         if let url = URL(string: totalURL){
             if let data = try? Data(contentsOf: url){
-                ingrdMainData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
+                ingrdMainData = try! JSONDecoder().decode(listDrink.self, from:data)
             }
         }
-        totalIngrData = ingrdMainData.drinks
+        totalIngrData = ingrdMainData.listDrinks
         var count = 0
         for existIngrDict in totalIngrData{
             let existIngr = existIngrDict.strIngredient1
