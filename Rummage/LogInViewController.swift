@@ -16,9 +16,19 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailSignin: UITextField!
     
     @IBOutlet weak var errorFound: UILabel!
+    
+    var refUserInfo: DatabaseReference!
+    var refPostInfo: DatabaseReference!
+    var refObservers: [DatabaseHandle] = []
+    
+    var userInfo: NSDictionary!
+    var postInfo: NSDictionary!
+    
     override func viewDidLoad() {
        super.viewDidLoad()
         pwSignin.isSecureTextEntry = true
+        refUserInfo = Database.database().reference(withPath: "user-info")
+        refPostInfo = Database.database().reference(withPath: "post-info")
     }
     
 

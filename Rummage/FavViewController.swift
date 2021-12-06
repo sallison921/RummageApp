@@ -21,6 +21,8 @@ class FavViewController: UIViewController {
     var curItemsScanned: [String] = []
     // add to this^^ when an items are scanned
     
+    var curItemProcessed: String = ""
+    
     //API key: 9973533
     
     //get rid of this all later!!!
@@ -136,21 +138,28 @@ class FavViewController: UIViewController {
 
     //uses the current ingredients produced by the barcode scanner to search for recipes to make with them
     func ingrToRecipe(){
-        var ingrToSearch: String = ""
-        for ingr in curItemsScanned{
-            if(curItemsScanned.firstIndex(of: ingr) == (curItemsScanned.count - 1)){
-                ingrToSearch += ingr
-            }
-            else{
-                ingrToSearch += ingr + ","
-            }
-        }
-        
+//        var ingrToSearch: String = ""
+//        for ingr in curItemsScanned{
+//            if(curItemsScanned.firstIndex(of: ingr) == (curItemsScanned.count - 1)){
+//                ingrToSearch += ingr
+//            }
+//            else{
+//                ingrToSearch += ingr + ","
+//            }
+//        }
+//
+//        let beginURL: String = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
+//        if(ingrToSearch.isEmpty){
+//           ingrToSearch = "tonic_water,gin"
+//        }
+//        let totalURL = beginURL + ingrToSearch
+//        if let url = URL(string: totalURL){
+//            if let data = try? Data(contentsOf: url){
+//                curISTotData = try! JSONDecoder().decode(drinkSearchResults.self, from:data)
+//            }
+//        }
         let beginURL: String = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
-        if(ingrToSearch.isEmpty){
-           ingrToSearch = "tonic_water,gin"
-        }
-        let totalURL = beginURL + ingrToSearch
+        let totalURL = beginURL + curItemProcessed
         if let url = URL(string: totalURL){
             if let data = try? Data(contentsOf: url){
                 curISTotData = try! JSONDecoder().decode(drinkSearchResults.self, from:data)
@@ -164,7 +173,11 @@ class FavViewController: UIViewController {
     
     @IBAction func getRecp(_ sender: Any) {
         curItemsScanned = ["vodka","cranberry_juice"]
-        ingrToRecipe()
+        for ingr in curItemsScanned{
+            curItemProcessed = ingr
+            ingrToRecipe()
+        }
+        //just make a tableview for this instead of the below hardcoded 
         oneRecp.text = curIngrToRecipeData[0].strDrink
         twoRecp.text = curIngrToRecipeData[1].strDrink
         threeRecp.text = curIngrToRecipeData[2].strDrink
