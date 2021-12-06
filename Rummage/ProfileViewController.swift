@@ -20,13 +20,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followers: UIButton!
     @IBOutlet weak var yourPosts: UIButton!
     @IBOutlet weak var following: UIButton!
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference().child("user_info")
         getInfo()
-        
-        // Do any additional setup after loading the view.
     }
+    
     func getInfo(){
         
         let user = Auth.auth().currentUser
@@ -35,11 +36,20 @@ class ProfileViewController: UIViewController {
           // Do NOT use this value to authenticate with your backend server,
           // if you have one. Use getTokenWithCompletion:completion: instead.
 //          let uid = user.uid
-          let email = user.email
-         print(email ??  "")
-            let userDisplayName = user.displayName
-            print(userDisplayName ?? "no")
-            username.text = userDisplayName
+ 
+            ref.child(user.uid).observe(.value, with: { snapshot in
+                let profile = snapshot.value as? [String: String]
+                let user = profile?["username"]
+              
+                self.username.text = user
+            })
+            
+//          let email = user.email
+//         print(email ??  "")
+//            let userDisplayName = user.displayName
+//            print(userDisplayName ?? "no")
+//            username.text = userDisplayName
+            
 //          var multiFactorString = "MultiFactor: "
 //          for info in user.multiFactor.enrolledFactors {
 //            multiFactorString += info.displayName ?? "[DispayName]"
@@ -62,12 +72,7 @@ class ProfileViewController: UIViewController {
             catch {
                 print("issues")
             }
-           
-           
         }
-    
-          
-        
     }
     /*
     // MARK: - Navigation

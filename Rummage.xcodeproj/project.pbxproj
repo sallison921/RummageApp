@@ -10,6 +10,7 @@
 		839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A86822741C852003F89F8 /* DetailedViewController.swift */; };
 		839A871527475037003F89F8 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A871427475037003F89F8 /* CustomHeaderView.swift */; };
 		839A87172747505D003F89F8 /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 839A87162747505D003F89F8 /* CustomHeaderView.xib */; };
+		839A872C275DC7FE003F89F8 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A872B275DC7FD003F89F8 /* EditProfileViewController.swift */; };
 		B800599A275BEBEC004F8CF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */; };
 		B800599D275BF249004F8CF1 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B800599C275BF249004F8CF1 /* FirebaseAppDistribution-Beta */; };
 		B800599F275BF249004F8CF1 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B800599E275BF249004F8CF1 /* FirebaseAuthCombine-Community */; };
@@ -54,6 +55,7 @@
 		839A86822741C852003F89F8 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		839A871427475037003F89F8 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		839A87162747505D003F89F8 /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
+		839A872B275DC7FD003F89F8 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B83FA9C82743738E00682B24 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		EB3CE824275707650010719E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */,
 				EB6EC9B5273B31AF005CC11A /* Experience.rcproject */,
 				EB6EC9B7273B31AF005CC11A /* Main.storyboard */,
+				839A872B275DC7FD003F89F8 /* EditProfileViewController.swift */,
 				EB7F8531275D2658003B122F /* RegisterViewController.swift */,
 				EB7F852F275D2640003B122F /* NewPostViewController.swift */,
 				EB3CE82C27570E920010719E /* FollowersViewController.swift */,
@@ -257,6 +260,7 @@
 				EB6EC9B4273B31AF005CC11A /* ViewController.swift in Sources */,
 				EB6EC9B2273B31AF005CC11A /* AppDelegate.swift in Sources */,
 				EB3CE82927570A540010719E /* ChosenRecipeViewController.swift in Sources */,
+				839A872C275DC7FE003F89F8 /* EditProfileViewController.swift in Sources */,
 				EB3CE82B27570D9B0010719E /* YourPostsViewController.swift in Sources */,
 				839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */,
 				EB3CE825275707650010719E /* ProfileViewController.swift in Sources */,
