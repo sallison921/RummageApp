@@ -174,9 +174,12 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
                     
                 }
                 if(specificIngr[0].isEmpty){
-                    curItemsScanned.remove(at: count-1)
+                    curItemsScanned.remove(at: count)
                 }
                 else{
+                    if(count==0){
+                        curItemsScanned[count] = specificIngr[0]
+                    }
                     curItemsScanned[count-1] = specificIngr[0]
 
                 }
