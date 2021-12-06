@@ -941,7 +941,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Get Recipes"/>
                                 <connections>
-                                    <segue destination="0ZD-kk-eca" kind="show" id="LIQ-Vh-RzB"/>
+                                    <segue destination="0ZD-kk-eca" kind="show" id="UQB-D1-JEQ"/>
                                 </connections>
                             </button>
                         </subviews>
