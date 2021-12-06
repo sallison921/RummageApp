@@ -27,9 +27,10 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableRecipes!.register(UITableViewCell.self, forCellReuseIdentifier: "recipeCell")
         self.tableRecipes.dataSource = self
         self.tableRecipes.delegate = self
-        print(UserDefaults.standard.stringArray(forKey: "IngredientsScanned"))
-        isPresentAPI()
-        getRecp()
+        //print(UserDefaults.standard.stringArray(forKey: "IngredientsScanned"))
+        getCranRecipe()
+        //isPresentAPI()
+        //getRecp()
         // Do any additional setup after loading the view.
     }
     
@@ -157,21 +158,23 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
             for scIngr in curItemsScanned{
 //                count = count + 1
                 var specificIngr = scIngr.components(separatedBy: " ")
-//                var count2 = 0
+                var count2 = 0
                 for specIngr in specificIngr{
                     if(specIngr == existIngr){
                         break
                     }
                     else if(specIngr.prefix(3) == existIngr.prefix(3)){
+                        specificIngr[count2] = existIngr
                         break
                     }
                     else if(specIngr.suffix(3) == existIngr.suffix(3)){
+                        specificIngr[count2] = existIngr
                         break
                     }
                     else{
                         specificIngr = specificIngr.filter(){$0 != specIngr}
                     }
-                    
+                    count2 = count2+1
                 }
                 if(specificIngr.count==0){
                     curItemsScanned.remove(at: count)
@@ -241,6 +244,19 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
 //        eightRecp.text = curIngrToRecipeData[7].strDrink
 //        nineRecp.text = curIngrToRecipeData[8].strDrink
 //        tenRecp.text = curIngrToRecipeData[9].strDrink
+    }
+    
+    func getCranRecipe(){
+        let beginURL: String = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i="
+        let totalURL = beginURL + "cranberry_juice"
+        if let url = URL(string: totalURL){
+            if let data = try? Data(contentsOf: url){
+                curISTotData = try! JSONDecoder().decode(drinkSearchResults.self, from:data)
+            }
+        }
+        
+        curIngrToRecipeData
+            += curISTotData.drinks
     }
 
     /*

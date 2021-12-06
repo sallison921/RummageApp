@@ -32,6 +32,7 @@
 		B80059BF275BF249004F8CF1 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B80059BE275BF249004F8CF1 /* FirebaseStorageCombine-Community */; };
 		B80059C1275BF249004F8CF1 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B80059C0275BF249004F8CF1 /* FirebaseStorageSwift-Beta */; };
 		B80059C3275E5823004F8CF1 /* GetRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80059C2275E5823004F8CF1 /* GetRecipesViewController.swift */; };
+		B80059C5275E7C26004F8CF1 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = B80059C4275E7C26004F8CF1 /* readme.txt */; };
 		B83FA9C92743738E00682B24 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA9C82743738E00682B24 /* FavViewController.swift */; };
 		EB3CE825275707650010719E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE824275707650010719E /* ProfileViewController.swift */; };
 		EB3CE8272757094A0010719E /* CreatedRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE8262757094A0010719E /* CreatedRecipesViewController.swift */; };
@@ -59,6 +60,7 @@
 		839A872B275DC7FD003F89F8 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B80059C2275E5823004F8CF1 /* GetRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipesViewController.swift; sourceTree = "<group>"; };
+		B80059C4275E7C26004F8CF1 /* readme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		B83FA9C82743738E00682B24 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		EB3CE824275707650010719E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EB3CE8262757094A0010719E /* CreatedRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedRecipesViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				B83FA9C82743738E00682B24 /* FavViewController.swift */,
 				B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */,
 				EB7F8537275DB083003B122F /* LogInViewController.swift */,
+				B80059C4275E7C26004F8CF1 /* readme.txt */,
 			);
 			path = Rummage;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B80059C5275E7C26004F8CF1 /* readme.txt in Resources */,
 				839A87172747505D003F89F8 /* CustomHeaderView.xib in Resources */,
 				EB6EC9BE273B31B0005CC11A /* LaunchScreen.storyboard in Resources */,
 				B800599A275BEBEC004F8CF1 /* GoogleService-Info.plist in Resources */,
