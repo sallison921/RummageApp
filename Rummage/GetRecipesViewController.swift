@@ -117,7 +117,8 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
         cell.textLabel!.text = curIngrToRecipeData[indexPath.row].strDrink
-        
+        curRecipe = curIngrToRecipeData[indexPath.row].strDrink
+        getRecipe()
         return cell
     }
     
