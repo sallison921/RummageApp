@@ -3,11 +3,18 @@ import UIKit
 
 class SelectedRecipeViewController: UIViewController {
 
-    var recipeInfo = UserDefaults.standard.stringArray(forKey: "RecipeSelected")
+    var recipeInfo: [String] = UserDefaults.standard.stringArray(forKey: "RecipeSelected") ?? []
+    
+    
+    @IBOutlet weak var recpName: UITextField!
+    @IBOutlet weak var recpInstr: UITextView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UserDefaults.standard.stringArray(forKey: "RecipeSelected"))
 //        // Do any additional setup after loading the view.
+        
     }
     
     struct recipeInfo:Decodable{
@@ -47,13 +54,14 @@ class SelectedRecipeViewController: UIViewController {
         let strMeasure15: String //measurement of ingredient 15
     }
     
+    func setItems(){
+        recpName.text = recipeInfo[0].strDrink
+        recpInstr.text = recipeInfo[0].strInstructions
+    }
+    
     
 //    let recipeName = recipeInfo.strDrink
 //    let recipeInstr = recipeInfo.strInstructions
-    
-    @IBOutlet weak var recpName: UILabel!
-    @IBOutlet weak var recpInstr: UILabel!
-    
     
     /*
     // MARK: - Navigation
