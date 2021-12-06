@@ -66,7 +66,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         let strIngredient1: String //ingredient 1
     }
     struct listDrink:Decodable{
-        let listDrinks : [existingDrink]
+        let drinks : [existingDrink]
     }
     
     struct recipeSearchResults:Decodable{
@@ -139,7 +139,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
     //called when scanner produces the name of the ingredient scanned
     //checks that the ingredients scanned appear in the database's list of ingredients, and removes an item from the array of scanned ingredients if it does not
     func isPresentAPI(){
-        var ingrdMainData = listDrink(listDrinks: [])
+        var ingrdMainData = listDrink(drinks: [])
 //        var ingrdMainData = recipeSearchResults(drinks: [])
         var totalIngrData: [existingDrink]!
         
@@ -149,7 +149,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
                 ingrdMainData = try! JSONDecoder().decode(listDrink.self, from:data)
             }
         }
-        totalIngrData = ingrdMainData.listDrinks
+        totalIngrData = ingrdMainData.drinks
         var count = 0
         for existIngrDict in totalIngrData{
             let existIngr = existIngrDict.strIngredient1
@@ -173,7 +173,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
                     }
                     
                 }
-                curItemsScanned[count] = specificIngr[0]
+                curItemsScanned[count-1] = specificIngr[0]
                 count = count + 1
             }
         }

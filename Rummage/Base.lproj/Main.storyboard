@@ -996,8 +996,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Nfx-ym-62n"/>
                     <connections>
-                        <outlet property="tableRecipes" destination="Umt-u6-kOx" id="3Hz-F4-Guf"/>
-                        <outlet property="testing" destination="wKg-Je-niW" id="6AB-dP-9Ui"/>
+                        <outlet property="tableRecipes" destination="Umt-u6-kOx" id="Hh2-Wt-ugl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5WZ-44-jFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
