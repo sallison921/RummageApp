@@ -12,7 +12,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
     var curRecipe: String!
     // set this^^ when a recipe is clicked on
     
-    var curItemsScanned: [String] = []
+    var curItemsScanned: [String] = UserDefaults.standard.stringArray(forKey: "IngredientsScanned")
     // add to this^^ when an items are scanned
     
     var curItemProcessed: String = ""

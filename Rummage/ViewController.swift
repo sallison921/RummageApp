@@ -67,6 +67,7 @@ extension ViewController: ScannerViewDelegate {
         print(list)
         productLabel.text = list
         //cacheImages(item: result)
+        UserDefaults.standard.set(ingredients, forKey: "IngredientsScanned")
     }
     
     func cacheImages(item: Products) {
@@ -83,11 +84,8 @@ extension ViewController: ScannerViewDelegate {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is GetRecipesViewController{
-            let vc = segue.destination as? GetRecipesViewController
-            vc?.curItemsScanned = ingredients
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        UserDefaults.standard.set(ingredients, forKey: "IngredientsScanned")
+//    }
 }
 
