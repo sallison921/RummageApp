@@ -27,10 +27,10 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableRecipes!.register(UITableViewCell.self, forCellReuseIdentifier: "recipeCell")
         self.tableRecipes.dataSource = self
         self.tableRecipes.delegate = self
-        //print(UserDefaults.standard.stringArray(forKey: "IngredientsScanned"))
-        getCranRecipe()
-        //isPresentAPI()
-        //getRecp()
+        print(UserDefaults.standard.stringArray(forKey: "IngredientsScanned"))
+        //getCranRecipe()
+        isPresentAPI()
+        getRecp()
         // Do any additional setup after loading the view.
     }
     
@@ -53,6 +53,8 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
 
     var curISTotData = drinkSearchResults(drinks: [])
     var curIngrToRecipeData: [drinkList] = []
+    
+    var goalIngr: [String] = []
     
     struct drinkSearchResults:Decodable{
         let drinks : [drinkList]
@@ -161,44 +163,50 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         totalIngrData = ingrdMainData.drinks
-        var count = 0
+        //var count = 0
+        outerMostLoop:
         for existIngrDict in totalIngrData{
             let existIngr = existIngrDict.strIngredient1
-            outerloop:
+            //var goalIngr: [String] = []
+            outerLoop:
             for scIngr in curItemsScanned{
-//                count = count + 1
-                var specificIngr = scIngr.components(separatedBy: " ")
-                var count2 = 0
-                for specIngr in specificIngr{
-                    if(specIngr == existIngr){
-                        break
-                    }
-                    else if(specIngr.prefix(3) == existIngr.prefix(3)){
-                        specificIngr[count2] = existIngr
-                        break
-                    }
-                    else if(specIngr.suffix(3) == existIngr.suffix(3)){
-                        specificIngr[count2] = existIngr
-                        break
-                    }
-                    else{
-                        specificIngr = specificIngr.filter(){$0 != specIngr}
-                    }
-                    count2 = count2+1
-                }
-                if(specificIngr.count==0){
-                    curItemsScanned.remove(at: count)
+                if(scIngr == existIngr){
+                   break
                 }
                 else{
-                    if(count==0){
-                        curItemsScanned[count] = specificIngr[0]
+                    func breakItem(fromCSVString str: String) -> [String]{
+                        let separators = CharacterSet(charactersIn: " -")
+                        return str.components(separatedBy: separators)
                     }
-                    curItemsScanned[count-1] = specificIngr[0]
-
+                   let brokenItem = breakItem(fromCSVString: scIngr)
+                    var goalItem: String = ""
+                    innerLoop:
+                    for specBI in brokenItem{
+                        if(specBI == existIngr){
+                            goalItem = specBI
+                            break innerLoop
+                        }
+                        else if(existIngr.contains(specBI)){
+//                            let index = brokenItem.firstIndex(of: specBI)
+//                            brokenItem[index!] = existIngr
+                            goalItem = existIngr
+                            break innerLoop
+                        }
+                        else{
+                        }
+                    }
+                    if(goalItem.isEmpty == false){
+                        goalIngr.append(goalItem)
+                    }
+//                    if(brokenItem.count != 0){
+//                        let index2 = curItemsScanned.firstIndex(of: scIngr)
+//                        curItemsScanned[index2!] = brokenItem[0]
+//                    }
+                   // ^^ removes items from scanned ingredient list
                 }
-                count = count + 1
             }
         }
+        
     }
 
     //uses the current ingredients produced by the barcode scanner to search for recipes to make with them
@@ -239,7 +247,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func getRecp(){
         //curItemsScanned = ["vodka","cranberry_juice"]
-        for ingr in curItemsScanned{
+        for ingr in goalIngr{
             curItemProcessed = ingr
             ingrToRecipe()
         }
