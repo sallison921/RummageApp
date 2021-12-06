@@ -162,7 +162,6 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
                     }
                     else{
                         specificIngr = specificIngr.filter(){$0 != specIngr}
-                        break
                     }
                     
                 }
