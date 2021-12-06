@@ -119,6 +119,14 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel!.text = curIngrToRecipeData[indexPath.row].strDrink
         curRecipe = curIngrToRecipeData[indexPath.row].strDrink
         getRecipe()
+        let selectRecpVC = SelectedRecipeViewController()
+       // navigationController?.pushViewController(selectRecpVC, animated: true)
+
+//        let listRecVC = ListRecViewController()
+//        listRecVC.myArray = listNames
+//
+//        navigationController?.pushViewController(listRecVC, animated: true)
+        
         return cell
     }
     
@@ -135,6 +143,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         curRecipeSelectedData = curRSTotData.drinks
+        UserDefaults.standard.set(curRecipeSelectedData, forKey: "RecipeSelected")
         
     }
 
