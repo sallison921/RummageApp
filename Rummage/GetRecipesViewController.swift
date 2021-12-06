@@ -12,7 +12,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
     var curRecipe: String!
     // set this^^ when a recipe is clicked on
     
-    var curItemsScanned: [String] = UserDefaults.standard.stringArray(forKey: "IngredientsScanned")
+    var curItemsScanned: [String] = UserDefaults.standard.stringArray(forKey: "IngredientsScanned") ?? []
     // add to this^^ when an items are scanned
     
     var curItemProcessed: String = ""
@@ -27,6 +27,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableRecipes!.register(UITableViewCell.self, forCellReuseIdentifier: "recipeCell")
         self.tableRecipes.dataSource = self
         self.tableRecipes.delegate = self
+        print(UserDefaults.standard.stringArray(forKey: "IngredientsScanned"))
         isPresentAPI()
         getRecp()
         // Do any additional setup after loading the view.
