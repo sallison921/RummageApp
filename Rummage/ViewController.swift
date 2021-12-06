@@ -82,5 +82,12 @@ extension ViewController: ScannerViewDelegate {
             print("no image")
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is GetRecipesViewController{
+            let vc = segue.destination as? GetRecipesViewController
+            vc?.curItemsScanned = ingredients
+        }
+    }
 }
 

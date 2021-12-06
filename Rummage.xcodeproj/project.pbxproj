@@ -31,6 +31,7 @@
 		B80059BD275BF249004F8CF1 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = B80059BC275BF249004F8CF1 /* FirebaseRemoteConfig */; };
 		B80059BF275BF249004F8CF1 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B80059BE275BF249004F8CF1 /* FirebaseStorageCombine-Community */; };
 		B80059C1275BF249004F8CF1 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B80059C0275BF249004F8CF1 /* FirebaseStorageSwift-Beta */; };
+		B80059C3275E5823004F8CF1 /* GetRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80059C2275E5823004F8CF1 /* GetRecipesViewController.swift */; };
 		B83FA9C92743738E00682B24 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FA9C82743738E00682B24 /* FavViewController.swift */; };
 		EB3CE825275707650010719E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE824275707650010719E /* ProfileViewController.swift */; };
 		EB3CE8272757094A0010719E /* CreatedRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE8262757094A0010719E /* CreatedRecipesViewController.swift */; };
@@ -57,6 +58,7 @@
 		839A87162747505D003F89F8 /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
 		839A872B275DC7FD003F89F8 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B80059C2275E5823004F8CF1 /* GetRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipesViewController.swift; sourceTree = "<group>"; };
 		B83FA9C82743738E00682B24 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		EB3CE824275707650010719E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EB3CE8262757094A0010719E /* CreatedRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedRecipesViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				EB6EC9B1273B31AF005CC11A /* AppDelegate.swift */,
+				B80059C2275E5823004F8CF1 /* GetRecipesViewController.swift */,
 				EB6EC9B3273B31AF005CC11A /* ViewController.swift */,
 				F1D9FBB9274464CF00D1F79F /* ScannerViewController.swift */,
 				EB6EC9C5273ECC16005CC11A /* HomeViewController.swift */,
@@ -267,6 +270,7 @@
 				EB7F8532275D2658003B122F /* RegisterViewController.swift in Sources */,
 				EB3CE82D27570E920010719E /* FollowersViewController.swift in Sources */,
 				EB7F8538275DB083003B122F /* LogInViewController.swift in Sources */,
+				B80059C3275E5823004F8CF1 /* GetRecipesViewController.swift in Sources */,
 				EB6EC9B6273B31AF005CC11A /* Experience.rcproject in Sources */,
 				EB6EC9C6273ECC16005CC11A /* HomeViewController.swift in Sources */,
 				EB7F8530275D2640003B122F /* NewPostViewController.swift in Sources */,
