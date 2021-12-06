@@ -120,9 +120,9 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
         cell.textLabel!.text = curIngrToRecipeData[indexPath.row].strDrink
         curRecipe = curIngrToRecipeData[indexPath.row].strDrink
-        getRecipe()
-        let selectRecpVC = SelectedRecipeViewController()
-       // navigationController?.pushViewController(selectRecpVC, animated: true)
+        //getRecipe()
+//        let selectRecpVC = SelectedRecipeViewController()
+//        navigationController?.pushViewController(selectRecpVC, animated: true)
 
 //        let listRecVC = ListRecViewController()
 //        listRecVC.myArray = listNames
@@ -130,6 +130,12 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
 //        navigationController?.pushViewController(listRecVC, animated: true)
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        curRecipe = curIngrToRecipeData[indexPath.row].strDrink
+        getRecipe()
+        let selectRecpVC = SelectedRecipeViewController()
+        navigationController?.pushViewController(selectRecpVC, animated: true)
     }
     
     //should be called when a recipe is clicked on
