@@ -32,10 +32,16 @@ class RegisterViewController: UIViewController {
         pwRegister.isSecureTextEntry = true
         refUserInfo = Database.database().reference(withPath: "user-info")
         refPostInfo = Database.database().reference(withPath: "post-info")
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func registerClicked(_ sender: Any) {
-       
         self.logIn()
         self.addName()
         
