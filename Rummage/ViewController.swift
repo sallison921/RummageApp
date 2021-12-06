@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var productImage: UIImageView!
     let scannerViewController = ScannerViewController()
     var theData:APIResults = APIResults(products: [])
+    var ingredients:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +51,22 @@ extension ViewController: ScannerViewDelegate {
     
     func fetchDataForCollectionView(query: String) {
         let itemTitle = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let url = URL(string: "https://api.barcodelookup.com/v3/products?barcode=\(itemTitle!)&formatted=y&key=fpgm6wv6vm8tp3wf8hwupzhi3gkpq2")
+        let url = URL(string: "https://api.barcodelookup.com/v3/products?barcode=\(itemTitle!)&formatted=y&key=28v9r6gmf41y1vj9bgqzp8rcqfr4rj")
         let data = try! Data(contentsOf: url!)
         theData = try! JSONDecoder().decode(APIResults.self, from:data)
         let result = theData.products[0]
-        productLabel.text = "Product: \(result.title)"
-        cacheImages(item: result)
+        productLabel.text = ""
+        ingredients.append(result.title)
+        print(ingredients)
+        var list = ""
+        for i in ingredients {
+            list += "- "
+            list += i
+            list += "\n"
+        }
+        print(list)
+        productLabel.text = list
+        //cacheImages(item: result)
     }
     
     func cacheImages(item: Products) {
