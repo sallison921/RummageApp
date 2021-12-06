@@ -3,47 +3,10 @@ import UIKit
 
 class SelectedRecipeViewController: UIViewController {
 
-//    var recipeInfo = UserDefaults.standard.stringArray(forKey: "RecipeSelected")
+    var recipeInfo = UserDefaults.standard.stringArray(forKey: "RecipeSelected")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var recipeInfo = UserDefaults.standard.stringArray(forKey: "RecipeSelected")
-        let view = UIView()
-        let nLX = 160
-        let nLY = 285
-        let nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 160, height: 285))
-        
-        nameLabel.center = CGPoint(x: 160, y: 285)
-        nameLabel.textAlignment = .center
-        nameLabel.text = "747 drink"
-        //nameLabel.text = recipeInfo?[0].strDrink
-
-        view.addSubview(nameLabel)
-        
-        let instrLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        instrLabel.center = CGPoint(x: 160, y: nLY+285)
-        instrLabel.textAlignment = .center
-        instrLabel.text = "Fill a Collins glass with ice. Pour in vodka, lime cordial, and cranberry juice. Fill up with Sprite. Garnish with a Lime wheel or some cranberries"
-        //instrLabel.text = recipeInfo[0]?.strInstructions
-
-        view.addSubview(instrLabel)
-////        recipeInfo = UserDefaults.standard.stringArray(forKey: "RecipeSelected")
-//        let nLX = 160
-//        let nLY = 285
-//        let nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: nLX, height: nLY))
-//        namelabel.center = CGPoint(x: 160, y: 285)
-//        namelabel.textAlignment = .center
-//        namelabel.text = recipeInfo.strDrink
-//
-//        self.view.addSubview(nameLabel)
-//
-//        let instrLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-//        instrLabel.center = CGPoint(x: 160, y: nLY+285)
-//        instrLabel.textAlignment = .center
-//        instrLabel.text = recipeInfo.strInstructions
-//
-//        self.view.addSubview(nameLabel)
 //        // Do any additional setup after loading the view.
     }
     
@@ -84,10 +47,12 @@ class SelectedRecipeViewController: UIViewController {
         let strMeasure15: String //measurement of ingredient 15
     }
     
-    var recipeInfo = UserDefaults.standard.stringArray(forKey: "RecipeSelected")
     
 //    let recipeName = recipeInfo.strDrink
 //    let recipeInstr = recipeInfo.strInstructions
+    
+    @IBOutlet weak var recpName: UILabel!
+    @IBOutlet weak var recpInstr: UILabel!
     
     
     /*

@@ -1029,6 +1029,10 @@
                         <viewLayoutGuide key="safeArea" id="L1m-oa-JdS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="recpInstr" destination="bYq-CI-LqX" id="fkQ-jW-VpV"/>
+                        <outlet property="recpName" destination="WBW-1D-TJs" id="Vwl-A0-p0a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvD-Hh-stg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

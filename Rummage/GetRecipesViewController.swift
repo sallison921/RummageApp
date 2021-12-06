@@ -135,7 +135,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         curRecipe = curIngrToRecipeData[indexPath.row].strDrink
         getRecipe()
         let selectRecpVC = SelectedRecipeViewController()
-        navigationController?.pushViewController(selectRecpVC, animated: true)
+        //navigationController?.pushViewController(selectRecpVC, animated: true)
     }
     
     //should be called when a recipe is clicked on
