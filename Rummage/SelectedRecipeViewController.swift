@@ -55,8 +55,8 @@ class SelectedRecipeViewController: UIViewController {
     }
     
     func setItems(){
-        recpName.text = recipeInfo[0].strDrink
-        recpInstr.text = recipeInfo[0].strInstructions
+//        recpName.text = recipeInfo[0].strDrink
+//        recpInstr.text = recipeInfo[0].strInstructions
     }
     
     

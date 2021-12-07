@@ -27,7 +27,7 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableRecipes!.register(UITableViewCell.self, forCellReuseIdentifier: "recipeCell")
         self.tableRecipes.dataSource = self
         self.tableRecipes.delegate = self
-        print(UserDefaults.standard.stringArray(forKey: "IngredientsScanned"))
+        //print(UserDefaults.standard.stringArray(forKey: "IngredientsScanned"))
         //getCranRecipe()
         isPresentAPI()
         getRecp()
@@ -181,6 +181,39 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         navigationController?.pushViewController(selectRecpVC, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favAction = UIContextualAction(style: .normal, title: "Add to Favorite", handler: {(ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            self.addToFavs(recipe: self.curIngrToRecipeData[indexPath.row].strDrink)
+            success(true)
+        })
+        favAction.backgroundColor = .blue
+        return UISwipeActionsConfiguration(actions: [favAction])
+    }
+    
+    @objc func addToFavs(recipe:String) {
+        print("add to favs")
+        let defaults = UserDefaults.standard
+        
+        if var favs = defaults.array(forKey: "fav") as? [String] {
+            if (favs.count == 0) {
+                favs = [recipe]
+            }
+            else {
+                if(favs.contains(recipe)){
+                    print("already exists")
+                }
+                else {
+                    favs.append(recipe)
+                }
+            }
+            defaults.set(favs, forKey: "fav")
+        }
+        else {
+            let favs:[String] = [String]()
+            UserDefaults.standard.set(favs, forKey: "fav")
+        }
+    }
+    
     //should be called when a recipe is clicked on
     func getRecipe(){
         let beginURL: String = "www.thecocktaildb.com/api/json/v1/1/search.php?s="
@@ -188,12 +221,14 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
             curRecipe = "margarita"
         }
         let totalURL = beginURL + curRecipe
+        print(totalURL)
         if let url = URL(string: totalURL){
             if let data = try? Data(contentsOf: url){
                 curRSTotData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
             }
         }
         curRecipeSelectedData = curRSTotData.drinks
+        print(curRSTotData)
         UserDefaults.standard.set(curRecipeSelectedData, forKey: "RecipeSelected")
         
     }

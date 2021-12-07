@@ -7,9 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
     struct APIResults:Decodable {
         let products: [Products]
     }
@@ -19,6 +18,7 @@ class ViewController: UIViewController {
         let images: [String]
     }
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scanBarButton: UIButton!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var productImage: UIImageView!
@@ -31,6 +31,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         scanBarButton.addTarget(self, action: #selector(scanBarTapped), for: .touchUpInside)
         scannerViewController.delegate = self
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
+        tableView.delegate = self
+        tableView.dataSource = self
         
     }
     
@@ -40,7 +43,24 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
+        cell.textLabel!.text = ingredients[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            ingredients.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
 
@@ -55,17 +75,15 @@ extension ViewController: ScannerViewDelegate {
         if let data = try? Data(contentsOf: url!) {
             theData = try! JSONDecoder().decode(APIResults.self, from:data)
             let result = theData.products[0]
-            productLabel.text = ""
+            //productLabel.text = ""
             ingredients.append(result.title)
-            print(ingredients)
             var list = ""
             for i in ingredients {
                 list += "- "
                 list += i
                 list += "\n"
             }
-            print(list)
-            productLabel.text = list
+            //productLabel.text = list
             //cacheImages(item: result)
             UserDefaults.standard.set(ingredients, forKey: "IngredientsScanned")
         }
