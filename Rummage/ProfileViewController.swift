@@ -24,22 +24,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var following: UIButton!
     
     var ref: DatabaseReference!
+    var pfpName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getInfo()
+        profilePicture()
     }
     
     func getInfo() {
-        //user needs to reload, it is reading as nil first time
-//        let user = Auth.auth().currentUser
-//        user?.reload()
-//        if let user = user {
-//            print("username is \(String(describing: user.displayName))")
-//            username.text = user.displayName
-//            //add pfp later
-//        }
-        
         let user = Auth.auth().currentUser
         if let user = user {
             ref = Database.database().reference().child("user-info")
@@ -47,14 +40,31 @@ class ProfileViewController: UIViewController {
                 let profile = snapshot.value as? [String: String]
                 let name = profile?["username"]
                 let biography = profile?["bio"]
+                let pfp = profile?["pfp"]
+                
                 self.username.text = name
                 self.bio.text = biography
-                })
+                self.pfpName = pfp ?? "no_profile.png"
+            })
         }
     }
+    
+    //getting photo from the database
+    func profilePicture() {
+        let newRef = Storage.storage().reference(forURL: "gs://rummage-e3626.appspot.com/Profiles/" + pfpName)
+   
+        newRef.getData(maxSize: 1*1024*1024, completion: { (data, error) in
+            if let error = error {
+                print("Error occurred \(String(describing: error))")
+            } else {
+                let image = UIImage(data: data!)
+                self.profilePic.image = image
+            }
+        })
+    }
+    
 
     @IBAction func logOutTapped(_ sender: Any) {
-  
             do {
                 try Auth.auth().signOut()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -67,14 +77,3 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-

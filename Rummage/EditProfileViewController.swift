@@ -16,6 +16,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var changeBio: UITextField!
     var ref: DatabaseReference!
     var UID = ""
+    var pfpName = ""
     var currentUsername = ""
     var currentBio = ""
     
@@ -35,14 +36,32 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 let profile = snapshot.value as? [String: String]
                 let username = profile?["username"]
                 let bio = profile?["bio"]
+                let picture = profile?["pfp"]
 
                 self.currentBio = bio ?? "Bio"
                 self.changeBio.text = bio
                 
                 self.currentUsername = username ?? "Username"
                 self.changeUser.text = username
+                
+                self.pfpName = picture ?? "no_profile.png"
+                self.profilePicture()
             })
         }
+    }
+    
+    //getting photo from the database
+    func profilePicture() {
+        let newRef = Storage.storage().reference(forURL: "gs://rummage-e3626.appspot.com/Profiles/" + pfpName)
+   
+        newRef.getData(maxSize: 1*1024*1024, completion: { (data, error) in
+            if let error = error {
+                print("Error occurred \(String(describing: error))")
+            } else {
+                let image = UIImage(data: data!)
+                self.pfp.image = image
+            }
+        })
     }
     
     //stuff for profile picture
@@ -71,8 +90,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 //                self.present(imagePickerController, animated: true, completion: nil)
 //            }
             self.present(imagePickerController, animated: true, completion: nil)
-           
-               
         }
     }
     
@@ -82,6 +99,19 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             print("Could not get image")
             return
         }
+        //turning image into Data to send to storage
+        guard let data: Data = image.jpegData(compressionQuality: 0.1) else {return}
+   
+        let imageRef = Storage.storage().reference().child("Profiles/\(UID).jpeg")
+        
+        //uploading data to storage
+        imageRef.putData(data, metadata: nil) { (metadata, error) in
+            if error != nil {
+                print("Error occured. Error is \(String(describing: error))")
+                return
+            }
+        }
+            pfpName = "\(UID).jpeg"
             pfp.image = image
             self.dismiss(animated: true, completion: nil)
     }
@@ -121,7 +151,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
         //sending changed information to the database
         let profile = ["bio": changeBio.text ?? currentBio,
-                    "pfp": "no_profile.png",
+                    "pfp": pfpName,
                     "username" : changeRequest?.displayName] as? [String : String]
         ref.child(UID).setValue(profile)
         
