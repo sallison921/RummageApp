@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController {
     //these allow for us to save/sync data to db
     var refUserInfo: DatabaseReference!
     var refPostInfo: DatabaseReference!
+    var ref: DatabaseReference!
     var refObservers: [DatabaseHandle] = []
     
     var userInfo: NSDictionary!
@@ -30,6 +31,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
        super.viewDidLoad()
         pwRegister.isSecureTextEntry = true
+        
         refUserInfo = Database.database().reference(withPath: "user-info")
         refPostInfo = Database.database().reference(withPath: "post-info")
 
@@ -42,15 +44,12 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerClicked(_ sender: Any) {
-     
-
-        
         Auth.auth().createUser(withEmail: emailRegister.text ?? "", password: pwRegister.text ?? "")  {(user, error) in
             if user != nil {
                 print("registered")
 
                 self.logIn()
-                self.addName()
+                self.addInfo()
             }
             if error != nil {
                 print(":(",error ?? "")
@@ -58,26 +57,35 @@ class RegisterViewController: UIViewController {
                 self.errorFound.text = "There was an error creating your account, please try again"
             }
         }
-   
-       
-    
-        
     }
     
 
-    func addName() {
-
-        if Auth.auth().currentUser != nil {
-            let addName = Auth.auth().currentUser?.createProfileChangeRequest()
-            addName?.displayName = self.usernameRegister.text ?? "nope"
-            print(self.usernameRegister.text)
-            addName?.commitChanges { error in
-                print(error ?? addName?.displayName)
+    func addInfo() {
+        let user = Auth.auth().currentUser
+        if user != nil {
+            let generatedUsername: String = user!.uid
+            let username = usernameRegister.text ?? generatedUsername
+            
+            let addInfo = Auth.auth().currentUser?.createProfileChangeRequest()
+            addInfo?.displayName = username
+           
+            print(usernameRegister.text!)
+            addInfo?.commitChanges { error in
+                print(error ?? addInfo?.displayName as Any)
             }
+            //add profile pic stuff here
+            //have to get URL link from storage too, as NSURL
+            
+            //sending this information to the database
+            //can add more stuff to this list later
+            refUserInfo.child(user!.uid).child("username").setValue(username)
+            refUserInfo.child(user!.uid).child("bio").setValue(biographyRegister.text ?? "Hi there!")
+            //can change to the URL link later
+            refUserInfo.child(user!.uid).child("pfp").setValue("no_profile.png")
+
         } else {
           print("not yet")
         }
-       
     }
     
     func logIn(){

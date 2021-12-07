@@ -20,43 +20,33 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followers: UIButton!
     @IBOutlet weak var yourPosts: UIButton!
     @IBOutlet weak var following: UIButton!
+    
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference().child("user_info")
         getInfo()
     }
     
-    func getInfo(){
+    func getInfo() {
+        //user needs to reload, it is reading as nil first time
+//        let user = Auth.auth().currentUser
+//        user?.reload()
+//        if let user = user {
+//            print("username is \(String(describing: user.displayName))")
+//            username.text = user.displayName
+//            //add pfp later
+//        }
         
         let user = Auth.auth().currentUser
         if let user = user {
-          // The user's ID, unique to the Firebase project.
-          // Do NOT use this value to authenticate with your backend server,
-          // if you have one. Use getTokenWithCompletion:completion: instead.
-//          let uid = user.uid
- 
+            ref = Database.database().reference().child("user-info")
             ref.child(user.uid).observe(.value, with: { snapshot in
                 let profile = snapshot.value as? [String: String]
-                let user = profile?["username"]
-              
-                self.username.text = user
-            })
-            
-//          let email = user.email
-//         print(email ??  "")
-//            let userDisplayName = user.displayName
-//            print(userDisplayName ?? "no")
-//            username.text = userDisplayName
-            
-//          var multiFactorString = "MultiFactor: "
-//          for info in user.multiFactor.enrolledFactors {
-//            multiFactorString += info.displayName ?? "[DispayName]"
-//            multiFactorString += " "
-//          }
-//            print(multiFactorString)
-          // ...
+                let name = profile?["username"]
+
+                self.username.text = name
+                })
         }
     }
 

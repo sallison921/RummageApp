@@ -11,6 +11,7 @@
 		839A871527475037003F89F8 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A871427475037003F89F8 /* CustomHeaderView.swift */; };
 		839A87172747505D003F89F8 /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 839A87162747505D003F89F8 /* CustomHeaderView.xib */; };
 		839A872C275DC7FE003F89F8 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A872B275DC7FD003F89F8 /* EditProfileViewController.swift */; };
+		839A872E275F7E61003F89F8 /* no_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 839A872D275F7E5F003F89F8 /* no_profile.png */; };
 		B800599A275BEBEC004F8CF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */; };
 		B800599D275BF249004F8CF1 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B800599C275BF249004F8CF1 /* FirebaseAppDistribution-Beta */; };
 		B800599F275BF249004F8CF1 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B800599E275BF249004F8CF1 /* FirebaseAuthCombine-Community */; };
@@ -59,6 +60,7 @@
 		839A871427475037003F89F8 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		839A87162747505D003F89F8 /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
 		839A872B275DC7FD003F89F8 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		839A872D275F7E5F003F89F8 /* no_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_profile.png; sourceTree = "<group>"; };
 		B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B80059C2275E5823004F8CF1 /* GetRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipesViewController.swift; sourceTree = "<group>"; };
 		B80059C4275E7C26004F8CF1 /* readme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				839A86822741C852003F89F8 /* DetailedViewController.swift */,
 				EB6EC9BA273B31B0005CC11A /* Assets.xcassets */,
 				EB6EC9BC273B31B0005CC11A /* LaunchScreen.storyboard */,
+				839A872D275F7E5F003F89F8 /* no_profile.png */,
 				EB6EC9BF273B31B0005CC11A /* Info.plist */,
 				B83FA9C82743738E00682B24 /* FavViewController.swift */,
 				B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */,
@@ -249,6 +252,7 @@
 				B80059C5275E7C26004F8CF1 /* readme.txt in Resources */,
 				839A87172747505D003F89F8 /* CustomHeaderView.xib in Resources */,
 				EB6EC9BE273B31B0005CC11A /* LaunchScreen.storyboard in Resources */,
+				839A872E275F7E61003F89F8 /* no_profile.png in Resources */,
 				B800599A275BEBEC004F8CF1 /* GoogleService-Info.plist in Resources */,
 				EB6EC9BB273B31B0005CC11A /* Assets.xcassets in Resources */,
 				EB6EC9B9273B31AF005CC11A /* Main.storyboard in Resources */,
