@@ -3,16 +3,20 @@ import UIKit
 
 class SelectedRecipeViewController: UIViewController {
 
-    var recipeInfo: [String] = UserDefaults.standard.stringArray(forKey: "RecipeSelected") ?? []
-    
+    var nameRecipe = UserDefaults.standard.string(forKey: "nameRecipeSelected")
+    var instrRecipe = UserDefaults.standard.string(forKey: "instrRecipeSelected")
+    var measurementRecipe = UserDefaults.standard.string(forKey: "measurementsRecipeSelected")
+    var ingredientsRecipe = UserDefaults.standard.string(forKey: "ingredientsRecipeSelected")
     
     @IBOutlet weak var recpName: UITextField!
     @IBOutlet weak var recpInstr: UITextView!
-
+    @IBOutlet weak var recpIngr: UITextView!
+    @IBOutlet weak var recpMeasure: UITextView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UserDefaults.standard.stringArray(forKey: "RecipeSelected"))
+        setItems()
 //        // Do any additional setup after loading the view.
         
     }
@@ -55,8 +59,10 @@ class SelectedRecipeViewController: UIViewController {
     }
     
     func setItems(){
-//        recpName.text = recipeInfo[0].strDrink
-//        recpInstr.text = recipeInfo[0].strInstructions
+        recpName.text = nameRecipe
+        recpInstr.text = instrRecipe
+        recpIngr.text = measurementRecipe
+        recpMeasure.text = ingredientsRecipe
     }
     
     

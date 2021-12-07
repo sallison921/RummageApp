@@ -216,20 +216,25 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //should be called when a recipe is clicked on
     func getRecipe(){
-        let beginURL: String = "www.thecocktaildb.com/api/json/v1/1/search.php?s="
+        let beginURL: String = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s="
         if(curRecipe.isEmpty){
             curRecipe = "margarita"
         }
         let totalURL = beginURL + curRecipe
-        print(totalURL)
         if let url = URL(string: totalURL){
             if let data = try? Data(contentsOf: url){
                 curRSTotData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
             }
         }
         curRecipeSelectedData = curRSTotData.drinks
-        print(curRSTotData)
-        UserDefaults.standard.set(curRecipeSelectedData, forKey: "RecipeSelected")
+        let nameRecipeSelectedData = curRecipeSelectedData[0].strDrink
+        let instrRecipeSelectedData = curRecipeSelectedData[0].strInstructions
+        UserDefaults.standard.set(nameRecipeSelectedData, forKey: "nameRecipeSelected")
+        UserDefaults.standard.set(instrRecipeSelectedData, forKey: "instrRecipeSelected")
+        let arrMeasurements = [curRecipeSelectedData[0].strMeasure1, curRecipeSelectedData[0].strMeasure2, curRecipeSelectedData[0].strMeasure3, curRecipeSelectedData[0].strMeasure4, curRecipeSelectedData[0].strMeasure5, curRecipeSelectedData[0].strMeasure6, curRecipeSelectedData[0].strMeasure7, curRecipeSelectedData[0].strMeasure8, curRecipeSelectedData[0].strMeasure9, curRecipeSelectedData[0].strMeasure10, curRecipeSelectedData[0].strMeasure11, curRecipeSelectedData[0].strMeasure12, curRecipeSelectedData[0].strMeasure13, curRecipeSelectedData[0].strMeasure14, curRecipeSelectedData[0].strMeasure15]
+        let arrIngredients = [curRecipeSelectedData[0].strIngredient1, curRecipeSelectedData[0].strIngredient2, curRecipeSelectedData[0].strIngredient3, curRecipeSelectedData[0].strIngredient4, curRecipeSelectedData[0].strIngredient5, curRecipeSelectedData[0].strIngredient6, curRecipeSelectedData[0].strIngredient7, curRecipeSelectedData[0].strIngredient8, curRecipeSelectedData[0].strIngredient9, curRecipeSelectedData[0].strIngredient10, curRecipeSelectedData[0].strIngredient11, curRecipeSelectedData[0].strIngredient12, curRecipeSelectedData[0].strIngredient13, curRecipeSelectedData[0].strIngredient14, curRecipeSelectedData[0].strIngredient15]
+        UserDefaults.standard.set(arrMeasurements, forKey: "measurementsRecipeSelected")
+        UserDefaults.standard.set(arrIngredients, forKey: "ingredientsRecipeSelected")
         
     }
 
