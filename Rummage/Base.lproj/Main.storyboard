@@ -628,14 +628,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="mec-ME-foN">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="XNY-lt-8NG">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="j7E-R4-lu7">
-                                <rect key="frame" x="282" y="7" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="48P-2U-7bX">
                             <connections>
-                                <segue destination="IY6-tC-Xba" kind="show" id="NDC-Iq-5vC"/>
+                                <segue destination="IY6-tC-Xba" kind="show" id="jnT-cR-9Y8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
