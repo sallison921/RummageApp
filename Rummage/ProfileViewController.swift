@@ -12,7 +12,9 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var username: UILabel!
 
-
+    @IBOutlet weak var bio: UILabel!
+    
+    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var logOut: UIButton!
     //buttons on profile page
     //we can add little icons on top of each and make it look pretty
@@ -44,8 +46,9 @@ class ProfileViewController: UIViewController {
             ref.child(user.uid).observe(.value, with: { snapshot in
                 let profile = snapshot.value as? [String: String]
                 let name = profile?["username"]
-
+                let biography = profile?["bio"]
                 self.username.text = name
+                self.bio.text = biography
                 })
         }
     }

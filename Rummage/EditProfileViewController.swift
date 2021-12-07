@@ -59,7 +59,20 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             let imagePickerController = UIImagePickerController()
                 imagePickerController.delegate = self;
                 imagePickerController.sourceType = sourceType
-                self.present(imagePickerController, animated: true, completion: nil)
+            //tried to add requesting authorization
+//                var authorized = false
+//            PHPhotoLibrary.requestAuthorization({
+//                (status) in
+//                if status == PHAuthorizationStatus.authorized {
+//                    authorized = true
+//                }
+//            })
+//            if authorized {
+//                self.present(imagePickerController, animated: true, completion: nil)
+//            }
+            self.present(imagePickerController, animated: true, completion: nil)
+           
+               
         }
     }
     

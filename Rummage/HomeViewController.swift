@@ -59,18 +59,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath)
 
-        if indexPath.section == 0 && indexPath.row == 0 {
-            let buttons: UIButton = UIButton(frame: CGRect(x: 0, y: 30, width: view.frame.width/4, height: 30))
-            buttons.backgroundColor = .systemPink
-            buttons.setTitle("Following", for: .normal)
-            cell.addSubview(buttons)
-//            buttons.addTarget(self, action:#selector(addedToFavorites(_:)), for: .touchUpInside)
-            let forYouButton: UIButton = UIButton(frame: CGRect(x: buttons.frame.width + 40, y: 30, width: view.frame.width/4, height: 30))
-            forYouButton.backgroundColor = .systemPink
-            forYouButton.setTitle("For You", for: .normal)
-            cell.addSubview(forYouButton)
-        }
-        else {
+     
             let titleText: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 100))
             titleText.text = "Review!"
             titleText.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
@@ -78,7 +67,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             titleText.textAlignment = .center
         
             cell.addSubview(titleText)
-        }
+        
     
     
         
