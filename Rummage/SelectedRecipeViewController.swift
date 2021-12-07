@@ -5,8 +5,8 @@ class SelectedRecipeViewController: UIViewController {
 
     var nameRecipe = UserDefaults.standard.string(forKey: "nameRecipeSelected")
     var instrRecipe = UserDefaults.standard.string(forKey: "instrRecipeSelected")
-    var measurementRecipe = UserDefaults.standard.string(forKey: "measurementsRecipeSelected")
-    var ingredientsRecipe = UserDefaults.standard.string(forKey: "ingredientsRecipeSelected")
+    var measurementRecipe = UserDefaults.standard.stringArray(forKey: "measurementsRecipeSelected")
+    var ingredientsRecipe = UserDefaults.standard.stringArray(forKey: "ingredientsRecipeSelected")
     
     @IBOutlet weak var recpName: UITextField!
     @IBOutlet weak var recpInstr: UITextView!
@@ -61,8 +61,16 @@ class SelectedRecipeViewController: UIViewController {
     func setItems(){
         recpName.text = nameRecipe
         recpInstr.text = instrRecipe
-        recpIngr.text = measurementRecipe
-        recpMeasure.text = ingredientsRecipe
+        var listIngr: String = ""
+        for ingr in measurementRecipe!{
+            listIngr = listIngr + ingr + " \n"
+        }
+        var measureIngr: String = ""
+        for measure in ingredientsRecipe!{
+            measureIngr = measureIngr + measure + " \n"
+        }
+        recpIngr.text = listIngr
+        recpMeasure.text = measureIngr
     }
     
     
