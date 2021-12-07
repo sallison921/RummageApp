@@ -73,5 +73,16 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                     "pfp": "nil",
                     "username" : changeUser.text!] as [String : String]
         ref.child(user!.uid).setValue(profile)
+        
+        let alert = UIAlertController(title: "Profile Saved", message: "Changes have been saved!", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Dismiss", style: .default)
+     
+        alert.addAction(defaultAction)
+        let seconds = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.present(alert, animated: true) {
+               // The alert was presented
+            }
+        }
     }
 }
