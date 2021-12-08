@@ -42,7 +42,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return 7
     }
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -57,22 +56,18 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as? HomeCollectionViewCell else {
+            fatalError("Could not retrieve cell.")
+        }
+//            let titleText: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 100))
+//            titleText.text = "Review!"
+//            titleText.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
+//            titleText.textColor = UIColor.black
+//            titleText.textAlignment = .center
+//
+//            cell.addSubview(titleText)
 
-     
-            let titleText: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 100))
-            titleText.text = "Review!"
-            titleText.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
-            titleText.textColor = UIColor.black
-            titleText.textAlignment = .center
-        
-            cell.addSubview(titleText)
-        
-    
-    
-        
         return cell
-        
     }
     
     

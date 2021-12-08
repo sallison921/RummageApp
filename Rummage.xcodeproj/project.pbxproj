@@ -12,6 +12,8 @@
 		839A87172747505D003F89F8 /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 839A87162747505D003F89F8 /* CustomHeaderView.xib */; };
 		839A872C275DC7FE003F89F8 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A872B275DC7FD003F89F8 /* EditProfileViewController.swift */; };
 		839A872E275F7E61003F89F8 /* no_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 839A872D275F7E5F003F89F8 /* no_profile.png */; };
+		839A873027606424003F89F8 /* YourPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A872F27606422003F89F8 /* YourPostCollectionViewCell.swift */; };
+		839A873227607B90003F89F8 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A873127607B8F003F89F8 /* HomeCollectionViewCell.swift */; };
 		B800599A275BEBEC004F8CF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */; };
 		B800599D275BF249004F8CF1 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B800599C275BF249004F8CF1 /* FirebaseAppDistribution-Beta */; };
 		B800599F275BF249004F8CF1 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B800599E275BF249004F8CF1 /* FirebaseAuthCombine-Community */; };
@@ -61,6 +63,8 @@
 		839A87162747505D003F89F8 /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
 		839A872B275DC7FD003F89F8 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		839A872D275F7E5F003F89F8 /* no_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_profile.png; sourceTree = "<group>"; };
+		839A872F27606422003F89F8 /* YourPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		839A873127607B8F003F89F8 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8005999275BEBEC004F8CF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B80059C2275E5823004F8CF1 /* GetRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipesViewController.swift; sourceTree = "<group>"; };
 		B80059C4275E7C26004F8CF1 /* readme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				EB3CE82C27570E920010719E /* FollowersViewController.swift */,
 				EB3CE82E27570E9C0010719E /* FollowingViewController.swift */,
 				EB3CE82A27570D9B0010719E /* YourPostsViewController.swift */,
+				839A873127607B8F003F89F8 /* HomeCollectionViewCell.swift */,
+				839A872F27606422003F89F8 /* YourPostCollectionViewCell.swift */,
 				EB3CE8262757094A0010719E /* CreatedRecipesViewController.swift */,
 				EB3CE82827570A540010719E /* ChosenRecipeViewController.swift */,
 				EB3CE824275707650010719E /* ProfileViewController.swift */,
@@ -279,9 +285,11 @@
 				839A86832741C852003F89F8 /* DetailedViewController.swift in Sources */,
 				EB3CE825275707650010719E /* ProfileViewController.swift in Sources */,
 				EB7F8532275D2658003B122F /* RegisterViewController.swift in Sources */,
+				839A873027606424003F89F8 /* YourPostCollectionViewCell.swift in Sources */,
 				B80059C9275E8816004F8CF1 /* SelectedRecipeViewController.swift in Sources */,
 				EB3CE82D27570E920010719E /* FollowersViewController.swift in Sources */,
 				EB7F8538275DB083003B122F /* LogInViewController.swift in Sources */,
+				839A873227607B90003F89F8 /* HomeCollectionViewCell.swift in Sources */,
 				B80059C3275E5823004F8CF1 /* GetRecipesViewController.swift in Sources */,
 				EB6EC9B6273B31AF005CC11A /* Experience.rcproject in Sources */,
 				EB6EC9C6273ECC16005CC11A /* HomeViewController.swift in Sources */,

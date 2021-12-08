@@ -19,7 +19,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var pfpName = ""
     var currentUsername = ""
     var currentBio = ""
-    
+    var userPosts: [StorageReference] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getInfo()

@@ -6,36 +6,46 @@
 //
 
 import UIKit
+import Firebase
 
 class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet var collectionView: UICollectionView!
-    
-
-
+    var ref: DatabaseReference!
+    var UID = ""
+    var userPosts: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "upcomingCell")
-       
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
-       
-
-        DispatchQueue.global(qos: .userInitiated).async {
-            
-
-           // self.cacheImages()
-          
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-       
+        getInfo()
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
   
+    func getInfo() {
+        let user = Auth.auth().currentUser
+        
+        if let user = user {
+            UID = user.uid
+            let storageReference = Storage.storage().reference().child("Posts/\(UID)")
+            storageReference.listAll(completion:{ (result, error) in
+              if let error = error {
+                print(error)
+              }
+                
+              for item in result.items {
+                let toString = String(describing: item)
+                self.userPosts.append(toString)
+              }
+                
+                DispatchQueue.global(qos: .userInitiated).async {
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                }
+            })
+        }
+    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
        return 1
@@ -43,14 +53,26 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
 
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-           return 1
+        return userPosts.count
    }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
        //create cell
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upcomingCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "yourPostsReuse", for: indexPath) as? YourPostCollectionViewCell else {
+            fatalError("Could not retrieve cell.")
+        }
+        let postName = userPosts[indexPath.item]
+        let ref = Storage.storage().reference(forURL: postName)
+   
+        ref.getData(maxSize: 1*1024*1024, completion: { (data, error) in
+            if let error = error {
+                print("Error occurred \(String(describing: error))")
+            } else {
+                let image = UIImage(data: data!)
+                cell.postImage.image = image
+            }
+        })
+        
         //create a uilabel for the title
 //        let titleText: UILabel = UILabel(frame: CGRect(x: 0, y: 160, width: cell.frame.width, height: 30))
 //        titleText.text = upcomingArray[indexPath.row].title
@@ -68,7 +90,6 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
 //        cell.backgroundView = img
         
         return cell
-        
     }
     
     
@@ -108,11 +129,4 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
        return true
    }
-    
-    
-
-    
-    
-   
-
 }

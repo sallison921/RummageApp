@@ -29,7 +29,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getInfo()
-        profilePicture()
     }
     
     func getInfo() {
@@ -44,7 +43,9 @@ class ProfileViewController: UIViewController {
                 
                 self.username.text = name
                 self.bio.text = biography
+                
                 self.pfpName = pfp ?? "no_profile.png"
+                self.profilePicture()
             })
         }
     }
