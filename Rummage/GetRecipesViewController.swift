@@ -170,14 +170,21 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         let recpToArray = curRecipe.components(separatedBy: " ")
         let backToString = recpToArray.joined(separator: "_")
         curRecipe = backToString
+        curRecipe = curRecipe!
+        print("printing curRecipe")
+        print(curRecipe)
         let totalURL = beginURL + curRecipe
         if let url = URL(string: totalURL){
+            print("print url")
+            print(url)
             if let data = try? Data(contentsOf: url){
                 curRSTotData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
             }
         }
         curRecipeSelectedData = curRSTotData.drinks
         let nameRecipeSelectedData = curRecipeSelectedData[0].strDrink
+        print("printing nameRecipeSelectedData")
+        print(nameRecipeSelectedData)
         let instrRecipeSelectedData = curRecipeSelectedData[0].strInstructions
         UserDefaults.standard.set(nameRecipeSelectedData, forKey: "nameRecipeSelected")
         UserDefaults.standard.set(instrRecipeSelectedData, forKey: "instrRecipeSelected")
