@@ -110,24 +110,60 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        if(curRecipe.isEmpty){
 //            curRecipe = "margarita"
 //        }
-        let totalURL = beginURL + "cosmopolitan"
+        var pracRecipe = "cosmopolitan"
+        let recpToArray = pracRecipe.components(separatedBy: " ")
+        let backToString = recpToArray.joined(separator: "_")
+        pracRecipe = backToString
+        let totalURL = beginURL + pracRecipe
+        print("printintg totalurl")
+        print(totalURL)
         if let url = URL(string: totalURL){
+            print("printintg url")
+            print(url)
             if let data = try? Data(contentsOf: url){
                 curRSTotData = try! JSONDecoder().decode(recipeSearchResults.self, from:data)
             }
         }
+        print("printing currstotdata")
+        print(curRSTotData)
         curRecipeSelectedData = curRSTotData.drinks
-        var chosenRecipeSelectedData = curRecipeSelectedData[0].strDrink
-        print("printing chosenSelectedData: ")
+        let chosenRecipeSelectedData = curRecipeSelectedData[0].strDrink
+        print("printing chosenRecipeSelectedData: ")
         print(chosenRecipeSelectedData)
-        UserDefaults.standard.set(chosenRecipeSelectedData, forKey: "TestRecipeSelected")
-        var testRecpInfo = UserDefaults.standard.object(forKey: "TestRecipeSelected") as? [String]
-        var aName = testRecpInfo?[0]
-        print("printing first element: ")
-        print(aName)
+        let chosenIngrSelectedData = curRecipeSelectedData[0].strInstructions
+        print("printing chosenIngrSelectedData: ")
+        print(chosenIngrSelectedData)
+        let ingr5Null = curRecipeSelectedData[0].strIngredient5
+        print("printing ingr5 that is null")
+        print(ingr5Null)
+        let ingr4Cran = curRecipeSelectedData[0].strIngredient4
+        print("printing ingr5 that is full")
+        print(ingr4Cran)
+        let arrIngr = [ingr4Cran, ingr5Null]
+        print("printing array w one full and one null value")
+        print(arrIngr)
+        UserDefaults.standard.set(ingr5Null, forKey: "ingr5Null")
+        UserDefaults.standard.set(ingr4Cran, forKey: "ingr4Cran")
+        let ingr5User = UserDefaults.standard.object(forKey: "ingr5Null")
+        let ingr4User = UserDefaults.standard.object(forKey: "ingr4Cran")
+        print("printing ingr5User")
+        print(ingr5User!)
+        print("printing ingr4User w !")
+        print(ingr4User!)
+        print("printing ingr4User w out !")
+        print(ingr4User)
+        
+        
+//        UserDefaults.standard.set(chosenRecipeSelectedData, forKey: "TestRecipeSelected")
+//        var testRecpInfo = UserDefaults.standard.object(forKey: "TestRecipeSelected") as? [String]
+//        var aName = testRecpInfo?[0]
+//        print("printing first element: ")
+//        print(aName)
     }
-     */
-    
+     
+    @IBOutlet weak var ingr4: UILabel!
+    @IBOutlet weak var ingr5: UILabel!
+    */
     
 }
 
