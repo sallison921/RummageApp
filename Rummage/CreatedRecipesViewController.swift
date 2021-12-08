@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreatedRecipesViewController: UIViewController {
+class CreatedRecipesViewController: UIViewController, UIViewController {
 
     var titleArray: [String] = []
     var imagesArray: [String] = []
@@ -19,47 +19,47 @@ class CreatedRecipesViewController: UIViewController {
     var upcoming: Bool!
     var recipeNames:[String] = []
     
-    //@IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
             super.viewDidLoad()
-//            if var recipes = UserDefaults.standard.array(forKey: "yourRecipes") as? [String] {
-//                DispatchQueue.global(qos: .userInitiated).async {
-//                    if(recipes.count == 0) {
-//                        recipes = []
-//                    }
-//                    for title in recipes {
-//                        self.recipeNames.append(title)
-//                    }
-//                    DispatchQueue.main.async {
-//                        self.tableView.reloadData()
-//                    }
-//                }
-//            }
-//            self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "tableCells")
-//            self.tableView.dataSource = self
-//            self.tableView.delegate = self
-//            self.navigationItem.rightBarButtonItem = self.editButtonItem
+            if var recipes = UserDefaults.standard.array(forKey: "yourRecipes") as? [String] {
+                DispatchQueue.global(qos: .userInitiated).async {
+                    if(recipes.count == 0) {
+                        recipes = []
+                    }
+                    for title in recipes {
+                        self.recipeNames.append(title)
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+            self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "tableCells")
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            self.navigationItem.rightBarButtonItem = self.editButtonItem
 
             
         }
 
         // MARK: - Table view data source
 
-    //    override func viewWillAppear(_ animated: Bool) {
-    //         titleArray = UserDefaults.standard.stringArray(forKey: "titleArray") ?? []
-    //        imagesArray = UserDefaults.standard.stringArray(forKey: "imagesArray") ?? []
-    //        detailsArray = UserDefaults.standard.stringArray(forKey: "detailsArray") ?? []
-    //        ratingsArray = UserDefaults.standard.stringArray(forKey: "ratingsArray") ?? []
-    //        descriptionArray = UserDefaults.standard.stringArray(forKey: "descriptionArray") ?? []
-    //        trailerArray = UserDefaults.standard.stringArray(forKey: "movieTrailerArray") ?? []
-    //        DispatchQueue.global(qos: .userInitiated).async {
-    //            DispatchQueue.main.async {
-    //                self.tableView.reloadData()
-    //            }
-    //
-    //        }
-    //    }
-/*
+        override func viewWillAppear(_ animated: Bool) {
+             titleArray = UserDefaults.standard.stringArray(forKey: "titleArray") ?? []
+            imagesArray = UserDefaults.standard.stringArray(forKey: "imagesArray") ?? []
+            detailsArray = UserDefaults.standard.stringArray(forKey: "detailsArray") ?? []
+            ratingsArray = UserDefaults.standard.stringArray(forKey: "ratingsArray") ?? []
+            descriptionArray = UserDefaults.standard.stringArray(forKey: "descriptionArray") ?? []
+            trailerArray = UserDefaults.standard.stringArray(forKey: "movieTrailerArray") ?? []
+            DispatchQueue.global(qos: .userInitiated).async {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+
+            }
+        }
+
          func numberOfSections(in tableView: UITableView) -> Int {
             return 1
         }
@@ -125,7 +125,7 @@ class CreatedRecipesViewController: UIViewController {
             navigationController?.pushViewController(chooseARecipe, animated: true)
            
         }
-*/
+
 
 
     }

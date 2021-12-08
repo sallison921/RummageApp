@@ -7,10 +7,10 @@
 
 import UIKit
 
-class DetailedViewController: UIViewController {
+class DetailedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-//    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     var favRecipes: [String] = []
     
@@ -23,35 +23,35 @@ class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setUp()
-//        let defaults = UserDefaults.standard
-//        if var favs = defaults.array(forKey: "fav") as? [String] {
-//            print("favs")
-//            print(favs)
-//                if(favs.count == 0) {
-//                    print("nothing in here")
-//                    favs = []
-//                }
-//                for recipe in favs {
-//                    print(recipe)
-//                    self.favRecipes.append(recipe)
-//                }
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//        }
-//        else{
-//            let favs:[String] = [String]()
-//            UserDefaults.standard.set(favs, forKey: "fav")
-//        }
+        setUp()
+        let defaults = UserDefaults.standard
+        if var favs = defaults.array(forKey: "fav") as? [String] {
+            print("favs")
+            print(favs)
+                if(favs.count == 0) {
+                    print("nothing in here")
+                    favs = []
+                }
+                for recipe in favs {
+                    print(recipe)
+                    self.favRecipes.append(recipe)
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+        }
+        else{
+            let favs:[String] = [String]()
+            UserDefaults.standard.set(favs, forKey: "fav")
+        }
     }
     
-//    func setUp() {
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//    }
-    /*
+    func setUp() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         cell.textLabel?.text = favRecipes[indexPath.row]
@@ -104,6 +104,6 @@ class DetailedViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 */
 }
