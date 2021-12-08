@@ -1,7 +1,7 @@
 
 import UIKit
 
-class SelectedRecipeViewController: UIViewController {
+class SelectedRecipeViewController: UIViewController, UITextFieldDelegate {
 
     var nameRecipe = UserDefaults.standard.string(forKey: "nameRecipeSelected")
     var instrRecipe = UserDefaults.standard.string(forKey: "instrRecipeSelected")
@@ -16,8 +16,6 @@ class SelectedRecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(nameRecipe)
-        print(recpName.text)
         setItems()
 //        // Do any additional setup after loading the view.
         

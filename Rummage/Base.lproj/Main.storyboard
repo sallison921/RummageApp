@@ -1519,11 +1519,12 @@
                     <navigationItem key="navigationItem" id="Nfx-ym-62n"/>
                     <connections>
                         <outlet property="tableRecipes" destination="Umt-u6-kOx" id="Hh2-Wt-ugl"/>
+                        <segue destination="QCu-L0-O4W" kind="show" id="SKV-hH-wxV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5WZ-44-jFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673.8461538461538" y="-520.37914691943126"/>
+            <point key="canvasLocation" x="2702" y="-510"/>
         </scene>
         <!--Selected Recipe View Controller-->
         <scene sceneID="ma5-Dh-Jcl">
@@ -1533,14 +1534,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Recipe Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DtR-tQ-7kf">
-                                <rect key="frame" x="145" y="113" width="97" height="34"/>
-                                <color key="backgroundColor" red="0.80205252199999999" green="0.60649044019999998" blue="0.92133218049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.55000000000000004" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nh0-56-pvU">
-                                <rect key="frame" x="72" y="174" width="240" height="217"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.55000000000000004" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nh0-56-pvU">
+                                <rect key="frame" x="73" y="199" width="240" height="217"/>
                                 <color key="backgroundColor" red="0.92133218049999999" green="0.88836006089999997" blue="0.58177543639999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="217" id="Mbt-Hw-JzD"/>
@@ -1565,8 +1560,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients &amp; Respective Measurements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg3-hZ-qBm">
-                                <rect key="frame" x="50" y="445" width="324" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ingredients &amp; Respective Measurements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg3-hZ-qBm">
+                                <rect key="frame" x="33" y="424" width="324" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="aLO-Bh-UuT"/>
                                 </constraints>
@@ -1574,6 +1569,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Recipe Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DtR-tQ-7kf">
+                                <rect key="frame" x="147" y="146" width="97" height="34"/>
+                                <color key="backgroundColor" red="0.80205252199999999" green="0.60649044019999998" blue="0.92133218049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L1m-oa-JdS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1589,6 +1590,7 @@
                             <constraint firstItem="Nh0-56-pvU" firstAttribute="leading" secondItem="L1m-oa-JdS" secondAttribute="leading" constant="72" id="snz-Mz-cTB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4L9-iU-i2E"/>
                     <connections>
                         <outlet property="recpIngr" destination="fca-C4-TVb" id="OvQ-Se-W1u"/>
                         <outlet property="recpInstr" destination="Nh0-56-pvU" id="jcy-rY-k3L"/>
