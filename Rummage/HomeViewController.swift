@@ -12,11 +12,36 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+   
+    
     //these allow for us to save/sync data to db
     var refUserInfo: DatabaseReference!
     var refPostInfo: DatabaseReference!
+    var ref: DatabaseReference!
     var refObservers: [DatabaseHandle] = []
     
+//    var userInfo: NSDictionary!
+//    var postInfo: NSDictionary!
+        
+    
+//    func getInfo() {
+//        let user = Auth.auth().currentUser
+//        if let user = user {
+//            ref = Database.database().reference().child("user-info")
+//            ref.child(user.uid).observe(.value, with: { snapshot in
+//                let profile = snapshot.value as? [String: String]
+//                let name = profile?["username"]
+//                let biography = profile?["bio"]
+//                let pfp = profile?["pfp"]
+//
+//                self.username.text = name
+//                self.bio.text = biography
+//
+//                self.pfpName = pfp ?? "no_profile.png"
+//                self.profilePicture()
+//            })
+//        }
+//    }
     var userInfo: NSDictionary = [
         "username": "fred",
         "pw": "12345",
@@ -26,6 +51,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         "profPic": "put image in later pt.2",
         "bio": "fred of scooby doo"
     ]
+    
 //    ^^all the values here should be extracted from some sort of text form filled out when the user registers/logs in
     
     //var curUser = value(forKey: "username")
@@ -42,7 +68,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return postInfo.count
     }
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        var myCGSize = CGSize(width: 350.0, height: 123.0)

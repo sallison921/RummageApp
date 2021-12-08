@@ -30,7 +30,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.84313726430000002" green="0.87843137979999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="DFa-Fs-dNh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wl9-kl-OSw" secondAttribute="leading" symbolic="YES" id="KNg-TL-xxb"/>
+                                    <constraint firstItem="DFa-Fs-dNh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wl9-kl-OSw" secondAttribute="leading" constant="20" symbolic="YES" id="KNg-TL-xxb"/>
                                     <constraint firstItem="DFa-Fs-dNh" firstAttribute="centerY" secondItem="Wl9-kl-OSw" secondAttribute="centerY" id="Ywk-S5-xfg"/>
                                     <constraint firstAttribute="trailing" secondItem="DFa-Fs-dNh" secondAttribute="trailing" constant="23" id="b83-wo-0n1"/>
                                 </constraints>
@@ -958,29 +958,36 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="yourPostsReuse" id="kAy-tu-Uke" customClass="YourPostCollectionViewCell" customModule="Rummage" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="175"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="D5N-h7-AUK">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="175"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="198"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKx-VB-R4w">
+                                                    <rect key="frame" x="79" y="151" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l7Q-oH-BgB">
-                                                    <rect key="frame" x="25" y="13" width="150" height="150"/>
+                                                    <rect key="frame" x="25" y="13" width="150" height="129"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="GSM-HO-huA"/>
-                                                        <constraint firstAttribute="height" constant="150" id="yNh-1c-Asw"/>
+                                                        <constraint firstAttribute="height" constant="129" id="bsn-mf-SfK"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="l7Q-oH-BgB" secondAttribute="trailing" constant="17" id="9J2-aA-SC4"/>
-                                                <constraint firstItem="l7Q-oH-BgB" firstAttribute="top" secondItem="D5N-h7-AUK" secondAttribute="topMargin" constant="5" id="ETe-Uw-dSQ"/>
-                                                <constraint firstItem="l7Q-oH-BgB" firstAttribute="leading" secondItem="D5N-h7-AUK" secondAttribute="leadingMargin" constant="17" id="e7y-ZO-I9x"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="l7Q-oH-BgB" secondAttribute="bottom" constant="4" id="zP9-9C-U0q"/>
+                                                <constraint firstItem="l7Q-oH-BgB" firstAttribute="centerX" secondItem="RKx-VB-R4w" secondAttribute="centerX" id="APv-Cr-1GL"/>
+                                                <constraint firstItem="l7Q-oH-BgB" firstAttribute="top" secondItem="D5N-h7-AUK" secondAttribute="top" constant="13" id="PfU-iq-d6s"/>
+                                                <constraint firstItem="RKx-VB-R4w" firstAttribute="top" secondItem="l7Q-oH-BgB" secondAttribute="bottom" constant="9" id="QAN-Fj-dME"/>
+                                                <constraint firstItem="l7Q-oH-BgB" firstAttribute="centerX" secondItem="D5N-h7-AUK" secondAttribute="centerX" id="Z6X-fc-7ox"/>
+                                                <constraint firstItem="l7Q-oH-BgB" firstAttribute="leading" secondItem="D5N-h7-AUK" secondAttribute="leading" constant="25" id="wE7-Od-dUo"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="200" height="175"/>
+                                        <size key="customSize" width="200" height="198"/>
                                         <connections>
+                                            <outlet property="postCaption" destination="RKx-VB-R4w" id="Ucu-6d-GcR"/>
                                             <outlet property="postImage" destination="l7Q-oH-BgB" id="ZvG-xU-QR1"/>
                                         </connections>
                                     </collectionViewCell>

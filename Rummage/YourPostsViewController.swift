@@ -14,6 +14,7 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
     var ref: DatabaseReference!
     var UID = ""
     var userPosts: [String] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,9 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    
+
+       
   
     func getInfo() {
         let user = Auth.auth().currentUser
@@ -32,7 +36,7 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
               if let error = error {
                 print(error)
               }
-                
+                print(result)
               for item in result.items {
                 let toString = String(describing: item)
                 self.userPosts.append(toString)
@@ -63,6 +67,7 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         let postName = userPosts[indexPath.item]
         let ref = Storage.storage().reference(forURL: postName)
+        
    
         ref.getData(maxSize: 1*1024*1024, completion: { (data, error) in
             if let error = error {
@@ -70,6 +75,9 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
             } else {
                 let image = UIImage(data: data!)
                 cell.postImage.image = image
+                
+//                cell.postCaption.text = postName
+                
             }
         })
         

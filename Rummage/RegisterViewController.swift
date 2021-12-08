@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: emailRegister.text ?? "", password: pwRegister.text ?? "")  {(user, error) in
             if user != nil {
                 print("registered")
-
+                
                 self.logIn()
                 self.addInfo()
             }
@@ -63,35 +63,37 @@ class RegisterViewController: UIViewController {
     func addInfo() {
         let user = Auth.auth().currentUser
         if user != nil {
+     
+          
             let generatedUsername: String = user!.uid
             let username = usernameRegister.text ?? generatedUsername
-            
+            let emptyFollowers = [String]()
+            let emptyFollowing = [String]()
             let addInfo = Auth.auth().currentUser?.createProfileChangeRequest()
             addInfo?.displayName = username
            
             print(usernameRegister.text!)
             addInfo?.commitChanges { error in
                 print(error ?? addInfo?.displayName as Any)
+  
+                self.refUserInfo.child(user!.uid).child("username").setValue(username)
+                self.refUserInfo.child(user!.uid).child("bio").setValue(self.biographyRegister.text ?? "Hi there!")
+                self.refUserInfo.child(user!.uid).child("pfp").setValue("no_profile.png")
+                self.refUserInfo.child(user!.uid).child("followedBy").setValue(emptyFollowers)
+                self.refUserInfo.child(user!.uid).child("following").setValue(emptyFollowing)
             }
-            //add profile pic stuff here
-            //have to get URL link from storage too, as NSURL
-            
-            //sending this information to the database
-            //can add more stuff to this list later
-            refUserInfo.child(user!.uid).child("username").setValue(username)
-            refUserInfo.child(user!.uid).child("bio").setValue(biographyRegister.text ?? "Hi there!")
-            //can change to the URL link later
-            refUserInfo.child(user!.uid).child("pfp").setValue("no_profile.png")
 
+           
         } else {
           print("not yet")
         }
+      
     }
     
     func logIn(){
         Auth.auth().signIn(withEmail: emailRegister.text ?? "", password: pwRegister.text ?? "") {(user, error) in
             if user != nil {
-                print("User Has Sign In")
+                print("User Has Signed In")
                 
                 //cited in loginViewController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -120,6 +122,7 @@ class RegisterViewController: UIViewController {
     */
     
 }
+
 
 
 
