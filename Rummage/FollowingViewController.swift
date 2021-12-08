@@ -7,22 +7,22 @@
 
 import UIKit
 
-class FollowingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FollowingViewController: UIViewController{
     
     
     
     
     
-    @IBOutlet weak var tableView: UITableView!
+   // @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "followingCell")
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+//        self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "followingCell")
+//        self.tableView.dataSource = self
+//        self.tableView.delegate = self
        
 
         
-    }
+    }/*
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "followingCell", for: indexPath)
        
@@ -47,5 +47,5 @@ class FollowingViewController: UIViewController, UITableViewDelegate, UITableVie
 
 
 }
-
+*/
 }

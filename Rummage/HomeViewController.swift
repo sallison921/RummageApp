@@ -8,11 +8,13 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomeViewController: UIViewController {
 
-    @IBOutlet var collectionView: UICollectionView!
+//    @IBOutlet var collectionView: UICollectionView!
     
-   
+    @IBOutlet weak var postPic: UIImageView!
+    @IBOutlet weak var postCap: UITextView!
+    
     
     //these allow for us to save/sync data to db
     var refUserInfo: DatabaseReference!
@@ -21,6 +23,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var refObservers: [DatabaseHandle] = []
     var arr: [DataSnapshot] = []
     var keyarr = [String]()
+    
+    var UID = ""
+    var userPosts: [String] = []
+    var captions: [String] = []
     
 //    var userInfo: NSDictionary!
 //    var postInfo: NSDictionary!
@@ -44,19 +50,25 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 //            })
 //        }
 //    }
+    
+    @IBOutlet weak var spongePic: UIImageView!
+    @IBOutlet weak var barackPicture: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "myCell") 
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "myCell")
+//        self.collectionView.delegate = self
+//        self.collectionView.dataSource = self
         refUserInfo = Database.database().reference(withPath: "user-info")
         refPostInfo = Database.database().reference(withPath: "post-info")
+        spongePic.image = UIImage(named: "spongebobDrink")
+        barackPicture.image = UIImage(named: "barackPic")
         DispatchQueue.global(qos: .userInitiated).async {
             
             self.updating()
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                //self.collectionView.reloadData()
             }
         }
        
@@ -99,7 +111,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        return myCGSize
 //    }
    
-
+/*
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("collec")
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath)
@@ -146,7 +158,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
        return true
    }
-    
+    */
     @IBAction func addUser(_ sender: Any) {
         let fullUsername = userInfo["username"] as! String
         let newUserRef = refUserInfo.child(fullUsername.lowercased())
@@ -159,8 +171,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let newPostRef = refPostInfo.child(fullUsername.lowercased())
         //^^makes sure database saves only latest entry of the username (whether its all lower or all upper or mixed cased)
         newPostRef.setValue(postInfo)
+        postPic.image = UIImage(named: "martini")
+        postCap.text = UserDefaults.standard.string(forKey: "newPostCap")
     }
     
+    
+
     
  
         //updating()

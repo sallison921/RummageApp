@@ -8,9 +8,9 @@
 import UIKit
 import Firebase
 
-class FollowersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FollowersViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var tableView: UITableView!
     
     //these allow for us to save/sync data to db
     var refUserInfo: DatabaseReference!
@@ -24,13 +24,14 @@ class FollowersViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "followersCell")
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+//        self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "followersCell")
+//        self.tableView.dataSource = self
+//        self.tableView.delegate = self
         
        
         //getInfo()
     }
+    /*
     override func viewWillAppear(_ animated: Bool) {
         
     
@@ -77,5 +78,5 @@ class FollowersViewController: UIViewController, UITableViewDelegate, UITableVie
         return keyarr.count
 
 }
-
+*/
 }

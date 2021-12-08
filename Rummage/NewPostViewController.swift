@@ -78,6 +78,7 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         /////
         let captionWords = postBody.text
+        UserDefaults.standard.set(captionWords, forKey: "newPostCap")
         guard let key = ref.childByAutoId().key else { return }
         let post = ["uid": UID,
                     "author": username,

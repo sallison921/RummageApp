@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreatedRecipesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CreatedRecipesViewController: UIViewController {
 
     var titleArray: [String] = []
     var imagesArray: [String] = []
@@ -19,26 +19,26 @@ class CreatedRecipesViewController: UIViewController, UITableViewDelegate, UITab
     var upcoming: Bool!
     var recipeNames:[String] = []
     
-    @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
             super.viewDidLoad()
-            if var recipes = UserDefaults.standard.array(forKey: "yourRecipes") as? [String] {
-                DispatchQueue.global(qos: .userInitiated).async {
-                    if(recipes.count == 0) {
-                        recipes = []
-                    }
-                    for title in recipes {
-                        self.recipeNames.append(title)
-                    }
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-            self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "tableCells")
-            self.tableView.dataSource = self
-            self.tableView.delegate = self
-            self.navigationItem.rightBarButtonItem = self.editButtonItem
+//            if var recipes = UserDefaults.standard.array(forKey: "yourRecipes") as? [String] {
+//                DispatchQueue.global(qos: .userInitiated).async {
+//                    if(recipes.count == 0) {
+//                        recipes = []
+//                    }
+//                    for title in recipes {
+//                        self.recipeNames.append(title)
+//                    }
+//                    DispatchQueue.main.async {
+//                        self.tableView.reloadData()
+//                    }
+//                }
+//            }
+//            self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "tableCells")
+//            self.tableView.dataSource = self
+//            self.tableView.delegate = self
+//            self.navigationItem.rightBarButtonItem = self.editButtonItem
 
             
         }
@@ -59,7 +59,7 @@ class CreatedRecipesViewController: UIViewController, UITableViewDelegate, UITab
     //
     //        }
     //    }
-
+/*
          func numberOfSections(in tableView: UITableView) -> Int {
             return 1
         }
@@ -125,7 +125,7 @@ class CreatedRecipesViewController: UIViewController, UITableViewDelegate, UITab
             navigationController?.pushViewController(chooseARecipe, animated: true)
            
         }
-
+*/
 
 
     }
