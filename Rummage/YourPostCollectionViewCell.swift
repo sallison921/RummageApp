@@ -11,5 +11,5 @@ class YourPostCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var postImage: UIImageView!
     
-    @IBOutlet weak var postCaption: UILabel!
+//    @IBOutlet weak var postCaption: UILabel!
 }
