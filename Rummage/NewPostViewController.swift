@@ -17,9 +17,13 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var cancelButton: UIButton!
     
     var ref: DatabaseReference!
+    var userRef: DatabaseReference!
     var UID = ""
+    var username = ""
     var postName = ""
     var imagePicked: UIImage?
+   // var postsArray = [Dictionary<String, String>] ()
+    
     
 
     override func viewDidLoad() {
@@ -29,10 +33,16 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     func getInfo(){
         ref = Database.database().reference().child("post-info")
+        userRef = Database.database().reference().child("user-info")
         let user = Auth.auth().currentUser
         
         if let user = user {
             UID = user.uid
+           
+            userRef.child(user.uid).observe(.value, with: { snapshot in
+                let profile = snapshot.value as? [String: String]
+                self.username = profile?["username"] ?? "not here"
+            })
         }
     }
 
@@ -59,10 +69,26 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
                 return
             }
         }
+        //postsArray.append(["caption": postBody.text, "image": "\(postName).jpeg"])
+    
         //add to database, caption and picname
-        ref.child(UID).child(postName).child("Picture").setValue("\(postName).jpeg")
-        ref.child(UID).child(postName).child("Caption").setValue(postBody.text)
-            
+//        ref.child(UID).child(postName).child("Picture").setValue("\(postName).jpeg")
+//        ref.child(UID).child(postName).child("Caption").setValue(postBody.text)
+//        userRef.child(UID).child("Posts").setValue(postsArray)
+        
+        /////
+        let captionWords = postBody.text
+        guard let key = ref.childByAutoId().key else { return }
+        let post = ["uid": UID,
+                    "author": username,
+                    "caption": captionWords,
+                    "image": "\(postName).jpeg"]
+        let childUpdates = ["/posts/\(key)": post,
+                            "/userPosts/\(UID)/\(key)/": post]
+        
+        ref.updateChildValues(childUpdates)
+        //////
+         
         self.dismiss(animated: true, completion: nil)
     }
 

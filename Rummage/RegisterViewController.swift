@@ -52,9 +52,22 @@ class RegisterViewController: UIViewController {
                 self.addInfo()
             }
             if error != nil {
-                print(":(",error ?? "")
-                self.errorFound.numberOfLines = 3
-                self.errorFound.text = "There was an error creating your account, please try again"
+                //print(":(",error ?? "")
+//                print(error.debugDescription)
+//                self.errorFound.numberOfLines = 3
+//                self.errorFound.text = "There was an error logging in, try again"
+                let defaultAction = UIAlertAction(title: "Dismiss", style: .default)
+                let alert = UIAlertController(title: "Error",
+                                              message: "\(String(describing: error))",
+                        preferredStyle: .alert)
+                alert.addAction(defaultAction)
+
+                let seconds = 0.5
+                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    self.present(alert, animated: true) {
+                       // The alert was presented
+                    }
+                }
             }
         }
     }

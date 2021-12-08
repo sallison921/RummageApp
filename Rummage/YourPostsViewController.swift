@@ -55,26 +55,23 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
                     }
                 }
             })
-            
-            let postRef = Database.database().reference().child("post-info")
-            postRef.child(user.uid).observe(.value, with: { snapshot in
-                let captionText = snapshot.value as? [String: String]
-                let theText = captionText?["Caption"]
-                print(theText ?? "ugh")
-
-
-            })
-            postRef.child(user.uid).observe(.value) { snapshot in
-              for child in snapshot.children {
-                print("YEET")
-                print(snapshot.key)
-              //  print(postRef.child(snapshot.key).child())
-                let toString = String(describing: child)
-                print("OKOK")
-                print(toString)
-                self.captions.append(toString)
-              }
-            }
+//
+//            let postRef = Database.database().reference().child("post-info")
+//            postRef.child(user.uid).observe(.value, with: { snapshot in
+//                let captionText = snapshot.value as? [String: String]
+//                let theText = captionText?["Caption"]
+//                print(theText ?? "ugh")
+//
+//
+//            })
+//            postRef.child(user.uid).observe(.value) { snapshot in
+//              for child in snapshot.children {
+//
+//                let toString = String(describing: child)
+//
+//                self.captions.append(toString)
+//              }
+//            }
      
         }
     }
@@ -92,12 +89,12 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
        //create cell
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "yourPostsReuse", for: indexPath)
         let postName = userPosts[indexPath.item]
-        let captionPostName = captions[indexPath.item]
+      //  let captionPostName = captions[indexPath.item]
         let ref = Storage.storage().reference(forURL: postName)
-        print(captionPostName)
-        let capRef = Database.database().reference().child(captionPostName)
+      //  print(captionPostName)
+       // let capRef = Database.database().reference().child(captionPostName)
        
-        print(capRef.child("Caption"))
+       // print(capRef.child("Caption"))
         
        
         ref.getData(maxSize: 1*1024*1024, completion: { (data, error) in
@@ -108,19 +105,19 @@ class YourPostsViewController: UIViewController, UICollectionViewDelegate, UICol
                 
 
                 //create a uilabel for the title
-                let titleText: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 30))
-                titleText.text = "hey what up"
-                titleText.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
-                titleText.textColor = UIColor.white
-                titleText.textAlignment = .center
-                
+//                let titleText: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 30))
+//                titleText.text = "hey what up"
+//                titleText.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
+//                titleText.textColor = UIColor.white
+//                titleText.textAlignment = .center
+//
                 //create an image view for image
                let img:UIImageView = UIImageView(frame: cell.frame)
                 let image = UIImage(data: data!)
                 img.image = image
 
                 //add text to image and set it as background
-                img.addSubview(titleText)
+               // img.addSubview(titleText)
                 cell.backgroundView = img
                 
                 

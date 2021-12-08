@@ -8,9 +8,9 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
     
    
     
@@ -19,6 +19,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var refPostInfo: DatabaseReference!
     var ref: DatabaseReference!
     var refObservers: [DatabaseHandle] = []
+    var arr: [DataSnapshot] = []
+    var keyarr = [String]()
     
 //    var userInfo: NSDictionary!
 //    var postInfo: NSDictionary!
@@ -42,6 +44,23 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 //            })
 //        }
 //    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "myCell") 
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        refUserInfo = Database.database().reference(withPath: "user-info")
+        refPostInfo = Database.database().reference(withPath: "post-info")
+        DispatchQueue.global(qos: .userInitiated).async {
+            
+            self.updating()
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+       
+    }
     var userInfo: NSDictionary = [
         "username": "fred",
         "pw": "12345",
@@ -68,7 +87,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postInfo.count
+        print("num")
+        return keyarr.count
     }
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        var myCGSize = CGSize(width: 350.0, height: 123.0)
@@ -79,12 +99,40 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        return myCGSize
 //    }
    
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("collec")
+         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath)
+      
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as? HomeCollectionViewCell else {
-            fatalError("Could not retrieve cell.")
-        }
+        let author: String = refPostInfo.child("post").child(keyarr[indexPath.item]).value(forKey: "author") as! String
+        let capText: String = refPostInfo.child("post").child(keyarr[indexPath.item]).value(forKey: "caption") as! String
+        print(author)
+        print(capText)
+        let titleText: UILabel = UILabel(frame: CGRect(x: 0, y: 160, width: cell.frame.width, height: 30))
+        titleText.text =  capText
+        titleText.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
+        titleText.textColor = UIColor.black
+        titleText.textAlignment = .center
+        
+        let authorText: UILabel = UILabel(frame: CGRect(x: 0, y: 100, width: cell.frame.width, height: 30))
+        authorText.text =  author
+        authorText.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
+        authorText.textColor = UIColor.black
+        authorText.textAlignment = .center
+
+        //create an image view for image
+//       let img:UIImageView = UIImageView(frame: cell.frame)
+//        let image:UIImage = theImageCache[indexPath.row]
+//        img.image = image
+
+        //add text to image and set it as background
+       
+        cell.addSubview(titleText)
+        cell.addSubview(authorText)
+        
+//        cell.postCaption.text = titleText
+//        cell.postUsername.text = author
 //            let titleText: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 100))
 //            titleText.text = "Review!"
 //            titleText.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
@@ -95,7 +143,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+       return true
+   }
     
     @IBAction func addUser(_ sender: Any) {
         let fullUsername = userInfo["username"] as! String
@@ -112,17 +162,40 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        refUserInfo = Database.database().reference(withPath: "user-info")
-        refPostInfo = Database.database().reference(withPath: "post-info")
+ 
+        //updating()
+    
+    func updating(){
+//        refPostInfo.child("posts/author").getData(completion: { error, snapshot in
+//            guard error == nil else {
+//              print(error!.localizedDescription)
+//              return;
+//            }
+//            let userName = snapshot.value as? String ?? "Unknown"
+//            print(userName)
+//          });
+
+          print("update")
+          refPostInfo?.observe(.childAdded) {(snapshot) in
+            self.arr.append(snapshot) // doing this, you can access the first child by contactListArray[0]
+            self.keyarr.append(snapshot.key)
+            print(self.keyarr.count)
+            // This is how to access info in your snapshot if you need it
+
+            let key = snapshot.key //HERE: you'll get the keys
+            let props = snapshot.value as! Dictionary<String, AnyObject>
+            //let userId = props["userId"] //HERE: how to access to data
+          }
+        
+
     }
-    
-    
-    
+//    override func viewWillAppear(_ animated: Bool) {
+//        print("appear")
+//
+//
+//
+//    }
+   
 }
 
 //sample data for DB
