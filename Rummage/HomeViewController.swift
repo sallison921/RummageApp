@@ -12,8 +12,7 @@ class HomeViewController: UIViewController {
 
 //    @IBOutlet var collectionView: UICollectionView!
     
-    @IBOutlet weak var postPic: UIImageView!
-    @IBOutlet weak var postCap: UITextView!
+
     
     
     //these allow for us to save/sync data to db
@@ -53,6 +52,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var spongePic: UIImageView!
     @IBOutlet weak var barackPicture: UIImageView!
+    @IBOutlet weak var hannahPic: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +64,7 @@ class HomeViewController: UIViewController {
         refPostInfo = Database.database().reference(withPath: "post-info")
         spongePic.image = UIImage(named: "spongebobDrink")
         barackPicture.image = UIImage(named: "barackPic")
+        hannahPic.image = UIImage(named: "hannahPic")
         DispatchQueue.global(qos: .userInitiated).async {
             
             self.updating()

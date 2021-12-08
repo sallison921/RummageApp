@@ -34,7 +34,7 @@
                                     <constraint firstItem="DFa-Fs-dNh" firstAttribute="centerY" secondItem="Wl9-kl-OSw" secondAttribute="centerY" id="oN8-nO-lHz"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.55000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SIt-m6-oh2">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SIt-m6-oh2">
                                 <rect key="frame" x="16" y="182" width="358" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="153" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cie-gw-sHD">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="I may not be of legal age but I sure do love my mocktails! Don't worry, I made some for Lily and Oliver too!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cie-gw-sHD">
                                         <rect key="frame" x="180" y="19" width="158" height="118"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,7 +53,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                             </view>
-                            <view alpha="0.55000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3X4-B1-yX1">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3X4-B1-yX1">
                                 <rect key="frame" x="16" y="363" width="358" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -61,7 +61,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="153" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Wow! Never too late to enjoy " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u8Z-7h-N8f">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="the paps caught me! made a frozen marg in the hotel kitchen that acutally turned out well! added whipped cream for some fun :P" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u8Z-7h-N8f">
                                         <rect key="frame" x="180" y="19" width="158" height="118"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,7 +72,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                             </view>
-                            <view alpha="0.55000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-MQ-7ry">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-MQ-7ry">
                                 <rect key="frame" x="16" y="545" width="358" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -80,7 +80,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="153" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sandy captured this picture of me LOVING my frozen margarita!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dGK-RU-oKk">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sandy captured this picture of me LOVING my piña colada!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dGK-RU-oKk">
                                         <rect key="frame" x="180" y="19" width="158" height="118"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -111,8 +111,8 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="postCap" destination="Cie-gw-sHD" id="Jsh-hR-huY"/>
-                        <outlet property="postPic" destination="QZh-P0-iw7" id="6dO-jG-zoq"/>
+                        <outlet property="barackPicture" destination="f3a-8C-xwH" id="0ty-WM-LxT"/>
+                        <outlet property="hannahPic" destination="QZh-P0-iw7" id="1UM-aN-a3T"/>
                         <outlet property="spongePic" destination="1go-Ik-pjr" id="AC0-00-A1P"/>
                     </connections>
                 </viewController>
