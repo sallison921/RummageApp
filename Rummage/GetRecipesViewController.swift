@@ -124,8 +124,8 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         curRecipe = curIngrToRecipeData[indexPath.row].strDrink
         getRecipe()
-        let selectRecpVC = SelectedRecipeViewController()
-        navigationController?.pushViewController(selectRecpVC, animated: true)
+//        let selectRecpVC = SelectedRecipeViewController()
+//        navigationController?.pushViewController(selectRecpVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -203,9 +203,12 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
                 newArrIngred.append(ing!)
             }
         }
-    
+        
         UserDefaults.standard.set(newArrMeasure, forKey: "measurementsRecipeSelected")
         UserDefaults.standard.set(newArrIngred, forKey: "ingredientsRecipeSelected")
+        
+        let selectRecpVC = SelectedRecipeViewController()
+        navigationController?.pushViewController(selectRecpVC, animated: true)
     }
 
     //called when scanner produces the name of the ingredient scanned
