@@ -74,7 +74,7 @@ extension ViewController: ScannerViewDelegate {
     
     func fetchDataForCollectionView(query: String) {
         let itemTitle = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let url = URL(string: "https://api.barcodelookup.com/v3/products?barcode=\(itemTitle!)&formatted=y&key=kgqaezw5p16xycgcaicj0kjz9rr6vb")
+        let url = URL(string: "https://api.barcodelookup.com/v3/products?barcode=\(itemTitle!)&formatted=y&key=n8633av904wfnmbjsqm1mu3ihum8pw")
         if let data = try? Data(contentsOf: url!) {
             theData = try! JSONDecoder().decode(APIResults.self, from:data)
             let result = theData.products[0]

@@ -55,7 +55,14 @@ class SelectedRecipeViewController: UIViewController, UITextFieldDelegate {
         measureText.text = measureIngr
         measureText.textAlignment = .center
         measureText.numberOfLines = 10
-
+        
+        let addFrame = CGRect(x: 0, y: 600, width: view.frame.width, height: 30)
+        let addButton = UIButton(frame: addFrame)
+        addButton.setTitleColor(.systemBlue, for: .normal)
+        addButton.setTitle("Add to Your Recipes", for: .normal)
+        addButton.addTarget(self, action: #selector(addToFavs), for: .touchUpInside)
+        
+        detailsContentView.addSubview(addButton)
         detailsContentView.addSubview(instrText)
         detailsContentView.addSubview(ingrText)
         detailsContentView.addSubview(measureText)
@@ -64,6 +71,28 @@ class SelectedRecipeViewController: UIViewController, UITextFieldDelegate {
         
         view.addSubview(scrollView)
         
+    }
+    @objc func addToFavs() {
+        let defaults = UserDefaults.standard
+        
+        if var recipes = defaults.array(forKey: "fav") as? [String] {
+            if (recipes.count == 0) {
+                recipes = [nameRecipe ?? ""]
+            }
+            else {
+                if(recipes.contains(nameRecipe ?? "")){
+                    print("already exists")
+                }
+                else {
+                    recipes.append(nameRecipe ?? "")
+                }
+            }
+            defaults.set(recipes, forKey: "yourRecipes")
+        }
+        else {
+            let recipes:[String] = [nameRecipe ?? ""]
+            defaults.set(recipes, forKey: "yourRecipes")
+        }
     }
    
     
