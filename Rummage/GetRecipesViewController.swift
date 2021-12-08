@@ -36,17 +36,6 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //API key: 9973533
     
-    //get rid of this all later!!!
-    @IBOutlet weak var oneRecp: UILabel!
-    @IBOutlet weak var twoRecp: UILabel!
-    @IBOutlet weak var threeRecp: UILabel!
-    @IBOutlet weak var fourRecp: UILabel!
-    @IBOutlet weak var fiveRecp: UILabel!
-    @IBOutlet weak var sixRecp: UILabel!
-    @IBOutlet weak var sevenRecp: UILabel!
-    @IBOutlet weak var eightRecp: UILabel!
-    @IBOutlet weak var nineRecp: UILabel!
-    @IBOutlet weak var tenRecp: UILabel!
     
     var curRSTotData = recipeSearchResults(drinks: [])
     var curRecipeSelectedData: [recipeInfo] = []
@@ -112,48 +101,6 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         let strMeasure15: String! //measurement of ingredient 15
     }
     
-//    struct specRecipeInfo:Decodable{
-//        let idDrink: String //id of drink in database
-//        let strDrink: String //name of drink
-//        let strDrinkAlternative: String
-//        let strTags: String
-//        let strVideo: String
-//        let strCategory: String
-//        let strIBA: String
-//        let strAlcoholic: String
-//        let strInstructions: String //instructions on how to make the drink
-//        let strDrinkThumb: String //string url of image of drink
-//        let strIngredient1: String //ingredient 1
-//        let strIngredient2: String //ingredient 2
-//        let strIngredient3: String //ingredient 3
-//        let strIngredient4: String //ingredient 4
-//        let strIngredient5: String //ingredient 5
-//        let strIngredient6: String //ingredient 6
-//        let strIngredient7: String //ingredient 7
-//        let strIngredient8: String //ingredient 8
-//        let strIngredient9: String //ingredient 9
-//        let strIngredient10: String //ingredient 10
-//        let strIngredient11: String //ingredient 11
-//        let strIngredient12: String //ingredient 12
-//        let strIngredient13: String //ingredient 13
-//        let strIngredient14: String //ingredient 14
-//        let strIngredient15: String //ingredient 15
-//        let strMeasure1: String //measurement of ingredient 1
-//        let strMeasure2: String //measurement of ingredient 2
-//        let strMeasure3: String //measurement of ingredient 3
-//        let strMeasure4: String //measurement of ingredient 4
-//        let strMeasure5: String //measurement of ingredient 5
-//        let strMeasure6: String //measurement of ingredient 6
-//        let strMeasure7: String //measurement of ingredient 7
-//        let strMeasure8: String //measurement of ingredient 8
-//        let strMeasure9: String //measurement of ingredient 9
-//        let strMeasure10: String //measurement of ingredient 10
-//        let strMeasure11: String //measurement of ingredient 11
-//        let strMeasure12: String //measurement of ingredient 12
-//        let strMeasure13: String //measurement of ingredient 13
-//        let strMeasure14: String //measurement of ingredient 14
-//        let strMeasure15: String //measurement of ingredient 15
-//    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return curIngrToRecipeData.count
@@ -236,9 +183,22 @@ class GetRecipesViewController: UIViewController, UITableViewDelegate, UITableVi
         UserDefaults.standard.set(instrRecipeSelectedData, forKey: "instrRecipeSelected")
         let arrMeasurements = [curRecipeSelectedData[0].strMeasure1, curRecipeSelectedData[0].strMeasure2, curRecipeSelectedData[0].strMeasure3 , curRecipeSelectedData[0].strMeasure4 , curRecipeSelectedData[0].strMeasure5 , curRecipeSelectedData[0].strMeasure6 , curRecipeSelectedData[0].strMeasure7 , curRecipeSelectedData[0].strMeasure8 , curRecipeSelectedData[0].strMeasure9 , curRecipeSelectedData[0].strMeasure10 , curRecipeSelectedData[0].strMeasure11 , curRecipeSelectedData[0].strMeasure12 , curRecipeSelectedData[0].strMeasure13, curRecipeSelectedData[0].strMeasure14 , curRecipeSelectedData[0].strMeasure15 ]
         let arrIngredients = [curRecipeSelectedData[0].strIngredient1, curRecipeSelectedData[0].strIngredient2, curRecipeSelectedData[0].strIngredient3 , curRecipeSelectedData[0].strIngredient4 , curRecipeSelectedData[0].strIngredient5 , curRecipeSelectedData[0].strIngredient6 , curRecipeSelectedData[0].strIngredient7 , curRecipeSelectedData[0].strIngredient8 , curRecipeSelectedData[0].strIngredient9 , curRecipeSelectedData[0].strIngredient10 , curRecipeSelectedData[0].strIngredient11 , curRecipeSelectedData[0].strIngredient12 , curRecipeSelectedData[0].strIngredient13 , curRecipeSelectedData[0].strIngredient14 , curRecipeSelectedData[0].strIngredient15 ]
-        UserDefaults.standard.set(arrMeasurements, forKey: "measurementsRecipeSelected")
-        UserDefaults.standard.set(arrIngredients, forKey: "ingredientsRecipeSelected")
         
+        var newArrMeasure: [String] = []
+        for msm in arrMeasurements{
+            if ((msm?.isEmpty) != nil){
+                newArrMeasure.append(msm!)
+            }
+        }
+        var newArrIngred: [String] = []
+        for ing in arrIngredients{
+            if ((ing?.isEmpty) != nil){
+                newArrIngred.append(ing!)
+            }
+        }
+    
+        UserDefaults.standard.set(newArrMeasure, forKey: "measurementsRecipeSelected")
+        UserDefaults.standard.set(newArrIngred, forKey: "ingredientsRecipeSelected")
     }
 
     //called when scanner produces the name of the ingredient scanned

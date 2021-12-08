@@ -61,20 +61,16 @@ class SelectedRecipeViewController: UIViewController {
     func setItems(){
         recpName.text = nameRecipe
         recpInstr.text = instrRecipe
+        
         var listIngr: String = ""
         for ingr in measurementRecipe!{
-            if ingr.isEmpty{
-                break
-            }
             listIngr = listIngr + ingr + " \n"
         }
         var measureIngr: String = ""
         for measure in ingredientsRecipe!{
-            if measure.isEmpty{
-                break
-            }
             measureIngr = measureIngr + measure + " \n"
         }
+        
         recpIngr.text = listIngr
         recpMeasure.text = measureIngr
     }
