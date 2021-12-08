@@ -56,13 +56,21 @@ class SelectedRecipeViewController: UIViewController, UITextFieldDelegate {
         measureText.textAlignment = .center
         measureText.numberOfLines = 10
         
-        let addFrame = CGRect(x: 0, y: 600, width: view.frame.width, height: 30)
-        let addButton = UIButton(frame: addFrame)
-        addButton.setTitleColor(.systemBlue, for: .normal)
-        addButton.setTitle("Add to Your Recipes", for: .normal)
-        addButton.addTarget(self, action: #selector(addToFavs), for: .touchUpInside)
+//        let addFrame = CGRect(x: 0, y: 600, width: view.frame.width, height: 30)
+//        let addButton = UIButton(frame: addFrame)
+//        addButton.setTitleColor(.systemBlue, for: .normal)
+//        addButton.setTitle("Add to Your Recipes", for: .normal)
+//        addButton.addTarget(self, action: #selector(addToFavs), for: .touchUpInside)
+//
+//
+//        detailsContentView.addSubview(addButton)
+        let favFrame = CGRect(x: 0, y: 600, width: view.frame.width, height: 30)
+        let favButton = UIButton(frame: favFrame)
+        favButton.setTitleColor(.systemBlue, for: .normal)
+        favButton.setTitle("Add to Your Recipes", for: .normal)
+        favButton.addTarget(self, action: #selector(addToFavs), for: .touchUpInside)
         
-        detailsContentView.addSubview(addButton)
+        detailsContentView.addSubview(favButton)
         detailsContentView.addSubview(instrText)
         detailsContentView.addSubview(ingrText)
         detailsContentView.addSubview(measureText)

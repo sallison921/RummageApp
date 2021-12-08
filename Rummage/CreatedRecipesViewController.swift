@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreatedRecipesViewController: UIViewController, UIViewController {
+class CreatedRecipesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var titleArray: [String] = []
     var imagesArray: [String] = []
@@ -45,20 +45,20 @@ class CreatedRecipesViewController: UIViewController, UIViewController {
 
         // MARK: - Table view data source
 
-        override func viewWillAppear(_ animated: Bool) {
-             titleArray = UserDefaults.standard.stringArray(forKey: "titleArray") ?? []
-            imagesArray = UserDefaults.standard.stringArray(forKey: "imagesArray") ?? []
-            detailsArray = UserDefaults.standard.stringArray(forKey: "detailsArray") ?? []
-            ratingsArray = UserDefaults.standard.stringArray(forKey: "ratingsArray") ?? []
-            descriptionArray = UserDefaults.standard.stringArray(forKey: "descriptionArray") ?? []
-            trailerArray = UserDefaults.standard.stringArray(forKey: "movieTrailerArray") ?? []
-            DispatchQueue.global(qos: .userInitiated).async {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-
-            }
-        }
+    //    override func viewWillAppear(_ animated: Bool) {
+    //         titleArray = UserDefaults.standard.stringArray(forKey: "titleArray") ?? []
+    //        imagesArray = UserDefaults.standard.stringArray(forKey: "imagesArray") ?? []
+    //        detailsArray = UserDefaults.standard.stringArray(forKey: "detailsArray") ?? []
+    //        ratingsArray = UserDefaults.standard.stringArray(forKey: "ratingsArray") ?? []
+    //        descriptionArray = UserDefaults.standard.stringArray(forKey: "descriptionArray") ?? []
+    //        trailerArray = UserDefaults.standard.stringArray(forKey: "movieTrailerArray") ?? []
+    //        DispatchQueue.global(qos: .userInitiated).async {
+    //            DispatchQueue.main.async {
+    //                self.tableView.reloadData()
+    //            }
+    //
+    //        }
+    //    }
 
          func numberOfSections(in tableView: UITableView) -> Int {
             return 1

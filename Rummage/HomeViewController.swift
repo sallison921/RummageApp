@@ -172,8 +172,8 @@ class HomeViewController: UIViewController {
         let newPostRef = refPostInfo.child(fullUsername.lowercased())
         //^^makes sure database saves only latest entry of the username (whether its all lower or all upper or mixed cased)
         newPostRef.setValue(postInfo)
-        postPic.image = UIImage(named: "martini")
-        postCap.text = UserDefaults.standard.string(forKey: "newPostCap")
+//        postPic.image = UIImage(named: "martini")
+//        postCap.text = UserDefaults.standard.string(forKey: "newPostCap")
     }
     
     
